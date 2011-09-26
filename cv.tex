@@ -1,0 +1,141 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0.1,0.3,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+\titleformat{\subsection}{\large\scshape\raggedright}{}{0em}{}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+%Tweak a bit the top margin
+\addtolength{\voffset}{-1.3cm}
+
+%Fixed-width right-aligned column
+\usepackage{array}
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+
+%Pretty links
+\newcommand{\schref}[2]{\href{#1}{\textsc{#2}}}
+\newcommand{\mhref}[1]{\href{mailto:#1}{#1}}
+\newcommand{\hhref}[1]{\href{http://#1}{#1}}
+
+%Pretty tables
+\newcommand{\rowhead}[1]{\textsc{#1} &}
+\newcommand{\rowdetail}[1]{& \footnotesize{#1}}
+
+\newcommand{\cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}
+\newcommand{\cvtableend}{\end{tabular}}
+
+%Section references
+\newcommand{\details}[1]{\hfill \hyperlink{details:#1}{\footnotesize Details}}
+\newcommand{\detail}[2]{\hypertarget{details:#1}{\subsection{#2}}}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Michael \textsc{Walker}
+	}\bigskip\par}
+
+%--------------------SECTIONS-----------------------------------
+\section{Personal}
+\cvtable
+  \rowhead{Address} 5 Wilsthorpe Grove, York, North Yorkshire, England, YO10 4HU \\
+  \rowhead{Website} \hhref{www.barrucadu.co.uk} \\
+  \rowhead{Email}   \mhref{mike@barrucadu.co.uk} \\
+  \rowhead{Phone}   (+44) (0) 7966875255 \\
+  \rowhead{GPG Key} 9F58FC68
+\cvtableend
+
+\section{Work Experience}
+\cvtable
+  \rowhead{August 2010} Work experience at \schref{http://www.arrivaldesign.co.uk/}{Arrival Design} \\
+  \rowdetail{Website development in PHP and XHTML, including migration of code from ASP to PHP.}
+\cvtableend
+
+\section{Free Software Contributions}
+\cvtable
+  \rowhead{2010+} Project Leader, \schref{http://www.archhurd.org}{Arch Hurd}\\
+  \rowdetail{Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}\\
+
+  \rowhead{2009+} Web Developer, \schref{http://www.uzbl.org}{Uzbl}\\
+  \rowdetail{Maintenance of website. Additionally, the website runs on a VPS I maintain.}\\
+
+  \rowhead{2009+} Web Developer, \schref{http://www.gnu.org}{GNU Project}\\
+  \rowdetail{Resolution of website issues as they arise, as part of a team of other maintainers.}\\
+
+  \rowhead{2009}  Developer, \schref{http://www.uzbl.org}{Uzbl}\\
+  \rowdetail{Implementation of various early functionality in a small development team, using C and Git.}
+\cvtableend
+
+\section{Education}
+\cvtable
+  \rowhead{2010+}       MEng (Computer Science), \textbf{University of York}, UK\\
+  \rowdetail{Ongoing, due to enter second year in October of 2011.} \details{csyork}\\
+
+  \rowhead{2009 - 2010} A Levels, \textbf{Hymers College}, UK\\
+  \rowdetail{Achieved grade A in Further Mathematics, Mathematics, and Physics. Achieved grade C in ICT.}\\
+
+  \rowhead{2009 - 2010} AS Levels, \textbf{Hymers College}, UK\\
+  \rowdetail{Achieved grade A in Computing. Achieved grade C in Psychology.}
+\cvtableend
+
+\section{Computer Skills}
+\cvtable
+  \rowhead{Basic}       Autotools, Javascript, ML, Scheme, Subversion\\
+  \rowhead{Familiar}    Apache, Bash, C, Java, {\fb\LaTeX}, Git, Microsoft Windows, MySQL, SQL\\
+  \rowhead{Experienced} CSS, GNU/Linux, GNU/Hurd, PHP, Python, XHTML, Zsh
+\cvtableend
+
+\section{References}
+\begin{tabular}{c}
+  Dr Dimitar Kazakov Msc, PhD\\
+  Academic supervisor\\
+  \mhref{kazakov@cs.york.ac.uk}\\
+\end{tabular}
+
+\section{Interests}
+Free and Open Source Software, Programming, Operating Systems, Computer Architectures 19th and 20th Century Literature and Literary Movements, Abstract Strategy Games
+
+\section{Details}
+
+\detail{csyork}{MEng (Computer Science), University of York, UK}
+\begin{tabular}{p{11cm}|c|c}
+  \hline
+  \textsc{Module Title}                        & \textsc{Result} & \textsc{Credit}\\
+  \hline
+
+  Human Aspects of Computer Science            & 66\%            & 20\\
+  Introduction to Computer Architectures       & 57\%            & 15\\
+  Mathematical Foundations of Computer Science & 81\%            & 20\\
+  Theory \& Practice of Programming            & 87\%            & 20\\
+  Digital Architecture Circuits \& Systems     & 51\%            & 30\\
+  Numerical Analysis                           & 71\%            & 10
+\end{tabular}
+
+\end{document}
