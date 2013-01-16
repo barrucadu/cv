@@ -41,11 +41,9 @@
 \newcommand{\hhref}[1]{\href{http://#1}{#1}}
 
 %Pretty tables
+\newenvironment{cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}{\end{tabular}}
 \newcommand{\rowhead}[1]{\textsc{#1} &}
 \newcommand{\rowdetail}[1]{& \footnotesize{#1}}
-
-\newcommand{\cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}
-\newcommand{\cvtableend}{\end{tabular}}
 
 %Section references
 \newcommand{\details}[1]{\hfill \hyperlink{details:#1}{\footnotesize Details}}
@@ -71,16 +69,16 @@ GPG: 9F58FC68\\
 
 %--------------------SECTIONS-----------------------------------
 \section{Work Experience}
-\cvtable
+\begin{cvtable}
   \rowhead{July 2012} Work experience at \schref{http://cs.york.ac.uk}{Department of Computer Science, University of York} \\
   \rowdetail{Use and analysis of data-mining tools.} \\
 
   \rowhead{August 2010} Work experience at \schref{http://www.arrivaldesign.co.uk/}{Arrival Design} \\
   \rowdetail{Website development in PHP and XHTML, including migration of code from ASP to PHP.}
-\cvtableend
+\end{cvtable}
 
 \section{Free Software Contributions}
-\cvtable
+\begin{cvtable}
   \rowhead{2010+} Project Leader, \schref{http://www.archhurd.org}{Arch Hurd}\\
   \rowdetail{Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}\\
 
@@ -92,10 +90,10 @@ GPG: 9F58FC68\\
 
   \rowhead{2009}  Developer, \schref{http://www.uzbl.org}{Uzbl}\\
   \rowdetail{Implementation of various early functionality in a small development team, using C and Git.}
-\cvtableend
+\end{cvtable}
 
 \section{Education}
-\cvtable
+\begin{cvtable}
   \rowhead{2010+}       MEng (Computer Science), \textbf{University of York}, UK\\
   \rowdetail{Ongoing, due to graduate in 2014.} \details{csyork}\\
 
@@ -104,14 +102,14 @@ GPG: 9F58FC68\\
 
   \rowhead{2008--2010} AS Levels, \textbf{Hymers College}, UK\\
   \rowdetail{Achieved grade A in Computing. Achieved grade C in Psychology.}
-\cvtableend
+\end{cvtable}
 
 \section{Computer Skills}
-\cvtable
+\begin{cvtable}
   \rowhead{Basic}       Autotools, Apache, Javascript, jQuery, ML, Scheme, Subversion\\
   \rowhead{Familiar}    Bash, CSS, Haskell, Java, {\fb\LaTeX}, Git, Microsoft Windows, MySQL, nginx, SQL\\
   \rowhead{Experienced} C, GNU/Linux, GNU/Hurd, PHP, Python, XHTML, Zsh
-\cvtableend
+\end{cvtable}
 
 \section{References}
 \begin{tabular}{c}
