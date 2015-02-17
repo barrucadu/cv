@@ -42,7 +42,8 @@
 
 %Pretty tables
 \newenvironment{cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}{\end{tabular}}
-\newcommand{\when}[1]{\textsc{#1} &}
+\newcommand{\when}[1]{\heading{#1}}
+\newcommand{\heading}[1]{\textsc{#1} &}
 \newcommand{\detail}[1]{& \footnotesize{#1}}
 
 %--------------------BEGIN DOCUMENT----------------------
@@ -114,6 +115,35 @@ GPG: 9F58FC68\\
 %   \when{Feb 2013} Holistic Mathematics: An Exploration into Category Theory at \schref{http://mathsoc.cms.gre.ac.uk/tmt/}{TMT 2013}\\
 %   \detail{An introduction to category theory and its applications given with Stijn S. C. Hanson.}
 % \end{cvtable}
+
+\section{Notable Projects}
+\begin{cvtable}
+  \heading{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
+  Personal library management webapp written in Haskell.\\
+  \detail{The product of necessity and boredom, as I needed a way to
+    keep track of all my books. A read-only version can be seen
+    \schref{http://www.barrucadu.co.uk/bookdb/}{here}.}\\
+
+  \heading{\schref{https://github.com/barrucadu/dejafu}{D\'{e}j\`{a} Fu}}
+  Concurrency testing library for Haskell.\\
+  \detail{Testing of functional correctness for concurrent
+    programs. Concurrency testing is hard because of the
+    nondeterminism imposed by the scheduler, but this can be overcome
+    by removing it from the picture by overriding the concurrency
+    primitives and implementing that bit of the runtime ourselves.}\\
+
+  \heading{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
+  IRC bot written in Haskell.\\
+  \detail{A concurrent IRC bot capable of connecting to multiple
+    networks simultaneously and responding to commands and events as
+    they arise. Also written in support of this were libraries for
+    implementing an
+    \schref{https://github.com/barrucadu/irc-client}{irc client},
+    communicating with
+    \schref{https://github.com/barrucadu/irc-conduit}{irc servers},
+    and encoding \schref{https://github.com/barrucadu/irc-ctcp}{CTCP}
+    messages.}
+\end{cvtable}
 
 \section{Academic Interests}
 Functional programming languages; type systems; static and runtime software verification.
