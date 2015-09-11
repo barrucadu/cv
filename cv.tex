@@ -10,6 +10,7 @@
 % an alternative to Layaureo can be ** \usepackage{fullpage} **
 \usepackage{supertabular} 				%for Grades
 \usepackage{titlesec}					%custom \section
+\usepackage{multirow}
 
 %Setup hyperref package, and colours for links
 \usepackage{hyperref}
@@ -43,9 +44,9 @@
 
 %Pretty tables
 \newenvironment{cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}{\end{tabular}}
-\newcommand{\when}[1]{\heading{#1}}
+\newcommand{\when}[1]{\multirow{2}{2cm}{\raggedleft \textsc{#1}} &}
 \newcommand{\heading}[1]{\textsc{#1} &}
-\newcommand{\detail}[1]{& \footnotesize{#1}}
+\newcommand{\detail}[1]{ & \footnotesize{#1}}
 
 %--------------------BEGIN DOCUMENT----------------------
 \begin{document}
@@ -67,11 +68,15 @@ York, North Yorkshire, England, YO10 5HA\\
 %--------------------SECTIONS-----------------------------------
 \section{Employment}
 \begin{cvtable}
+  \when{Oct 2014-- Jun 2015} Postgraduate Teaching Assistant at \schref{http://cs.york.ac.uk}{University of York}\\
+  \detail{Assisted with the teaching of first-year introductory
+    discrete mathematics course.}\\\\
+
   \when{Jul--Sep 2014} Internship at \schref{http://www.corefiling.com/}{CoreFiling}\\
   \detail{Refactoring and adding new functionality to \schref{https://github.com/CoreFiling/reviki}{Reviki}.
     Integration with \schref{https://www.atlassian.com/software/jira}{JIRA}.}\\\\
 
-  \when{Jul 2012} Internship at \schref{http://cs.york.ac.uk}{Department of Computer Science, University of York} \\
+  \when{Jul 2012} Internship at \schref{http://cs.york.ac.uk}{University of York} \\
   \detail{Use and analysis of data-mining tools.}
 
 %  \when{Aug 2010} Work experience at \schref{http://www.arrivaldesign.co.uk/}{Arrival Design} \\
