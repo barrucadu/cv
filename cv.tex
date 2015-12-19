@@ -41,11 +41,8 @@
 \newcommand{\mhref}[1]{\href{mailto:#1}{#1}}
 \newcommand{\hhref}[1]{\href{http://#1}{#1}}
 
-%Pretty tables
-\newenvironment{cvtable}{\begin{tabular}{x{2cm}|p{11.6cm}}}{\end{tabular}}
-\newcommand{\when}[1]{\multirow{2}{2cm}{\raggedleft \textsc{#1}} &}
-\newcommand{\heading}[1]{\textsc{#1} &}
-\newcommand{\detail}[1]{ & \footnotesize{#1}}
+% \cvitem with a detail field
+\newcommand{\cvitemdet}[3]{\cvitem{#1}{#2\newline{}\small#3}}
 
 %--------------------BEGIN DOCUMENT----------------------
 \begin{document}
@@ -63,10 +60,9 @@
 Interested in writing reliable concurrent programs in purely
 functional non-strict languages.
 
-\cvitem{\scshape 2015}
-  {\schref{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}
-  \newline{}
-  Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
+\cvitemdet{\scshape 2015}
+  {\schref{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}}
+  {Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
 
 \section{\scshape Employment}
 
@@ -147,10 +143,9 @@ functional non-strict languages.
 \vspace{0.2cm}
 \subsection{Personal}
 
-\cvitem{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
-  {Personal library management webapp written in Haskell.
-   \newline{}
-   The product of necessity and boredom, as I needed a way to keep
+\cvitemdet{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
+  {Personal library management webapp written in Haskell.}
+  {The product of necessity and boredom, as I needed a way to keep
    track of all my books. A read-only version can be seen
    \schref{http://www.barrucadu.co.uk/bookdb/}{here}.}
 
@@ -161,10 +156,9 @@ functional non-strict languages.
 %    nondeterminism imposed by the scheduler, but this can be overcome
 %    by implementing that bit of the runtime ourselves.}\\\\
 
-\cvitem{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
-  {IRC bot written in Haskell.
-   \newline{}
-   A concurrent IRC bot capable of connecting to multiple
+\cvitemdet{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
+  {IRC bot written in Haskell}
+  {A concurrent IRC bot capable of connecting to multiple
    networks simultaneously and responding to commands and events as
    they arise.}
 
