@@ -1,8 +1,5 @@
 \documentclass[a4paper,11pt]{moderncv}
 
-\moderncvstyle{casual}
-\moderncvcolor{blue}
-
 \firstname{Michael}
 \familyname{Walker}
 \address{York, North Yorkshire, England}
@@ -14,85 +11,68 @@
 \social[github]{barrucadu}
 \extrainfo{GPG: 9F58FC68}
 
-%A Few Useful Packages
-\usepackage{fontspec} 					%for loading fonts
-\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
-\usepackage[big]{layaureo} 				%better formatting of the A4 page
-% an alternative to Layaureo can be ** \usepackage{fullpage} **
-\usepackage{supertabular} 				%for Grades
-\usepackage{multirow}
+% Fonts
+\usepackage{fontspec}
 
-%FONTS
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
 
+% Layout
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+
+\usepackage[big]{layaureo}
+
+% Links
 \AfterPreamble{
  \definecolor{linkcolour}{rgb}{0.1,0.3,0.6}
   \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
 }
 
-%Fixed-width right-aligned column
-\usepackage{array}
-\newcolumntype{x}[1]{%
->{\raggedleft\hspace{0pt}}p{#1}}%
-
-%Pretty links
 \newcommand{\schref}[2]{\href{#1}{\textsc{#2}}}
-\newcommand{\mhref}[1]{\href{mailto:#1}{#1}}
-\newcommand{\hhref}[1]{\href{http://#1}{#1}}
 
 % \cvitem with a detail field
 \newcommand{\cvitemdet}[3]{\cvitem{#1}{#2\newline{}\small#3}}
 
-%--------------------BEGIN DOCUMENT----------------------
 \begin{document}
-\pagestyle{empty} % non-numbered pages
 
-\font\fb=''[cmr10]'' %for use with \LaTeX command
+\begin{center}
+  \Huge Michael \textsc{Walker}
+\end{center}
 
-%--------------------HEADER-------------
-
-\par{\centering {\Huge Michael \textsc{Walker}}\bigskip\par}
 \makecvfoot
 
-%--------------------SECTIONS-----------------------------------
 \section{\scshape Research \& Publications}
 Interested in writing reliable concurrent programs in purely
 functional non-strict languages.
 
 \cvitemdet{\scshape 2015}
-  {\schref{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}}
+  {\href{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}}
   {Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
 
 \section{\scshape Employment}
 
 \cventry{\scshape Oct 2015-- present}
   {Postgraduate Teaching Assistant}
-  {\schref{http://cs.york.ac.uk}{University of York}}
+  {\href{http://cs.york.ac.uk}{University of York}}
   {York}
   {}
   {Assist with the teaching of first-year introductory programming course.}
 
 \cventry{\scshape Oct 2014-- Jun 2015}
   {Postgraduate Teaching Assistant}
-  {\schref{http://cs.york.ac.uk}{University of York}}
+  {\href{http://cs.york.ac.uk}{University of York}}
   {York}
   {}
   {Assisted with the teaching of first-year introductory discrete mathematics course.}
 
 \cventry{\scshape Jul--Sep 2014}
   {Software Engineering Intern}
-  {\schref{http://www.corefiling.com/}{CoreFiling}}
+  {\href{http://www.corefiling.com/}{CoreFiling}}
   {Oxford}
   {}
-  {Refactoring and adding new functionality to \schref{https://github.com/CoreFiling/reviki}{Reviki}.
-   Integration with \schref{https://www.atlassian.com/software/jira}{JIRA}.}
-
-%  \when{Jul 2012} Internship at \schref{http://cs.york.ac.uk}{University of York} \\
-%  \detail{Use and analysis of data-mining tools.}
-
-%  \when{Aug 2010} Work experience at \schref{http://www.arrivaldesign.co.uk/}{Arrival Design} \\
-%  \detail{Website development in PHP and XHTML, including migration of code from ASP to PHP.}
+  {Refactoring and adding new functionality to \href{https://github.com/CoreFiling/reviki}{Reviki}.
+   Integration with \href{https://www.atlassian.com/software/jira}{JIRA}.}
 
 \section{\scshape Education}
 
@@ -110,32 +90,20 @@ functional non-strict languages.
   {\textit{2:1}}
   {Dissertation on verification of stop-the-world garbage collectors.}
 
-%  \when{2008--2010} A Levels, \textbf{Hymers College}, UK\\
-%  \detail{Achieved grade A in Further Mathematics, Mathematics, and Physics. Achieved grade C in ICT.}
-
-%  \when{2008--2010} AS Levels, \textbf{Hymers College}, UK\\
-%  \detail{Achieved grade A in Computing. Achieved grade C in Psychology.}
-
 \section{\scshape Projects}
 
 \subsection{Free Software Contributions}
 
 \cventry{\scshape 2010--2015}
   {Project Leader}
-  {\schref{http://www.archhurd.org}{Arch Hurd}}
+  {\href{http://www.archhurd.org}{Arch Hurd}}
   {}
   {}
   {Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}
 
-%  \when{2009+} Web Developer, \schref{http://www.uzbl.org}{Uzbl}\\
-%  \detail{Maintenance of website. Additionally, the website runs on a VPS I maintain.}\\\\
-
-%  \when{2009+} Web Developer, \schref{http://www.gnu.org}{GNU Project}\\
-%  \detail{Resolution of website issues as they arise, as part of a team of other maintainers.}\\
-
 \cventry{\scshape 2009}
   {Developer}
-  {\schref{http://www.uzbl.org}{Uzbl}}
+  {\href{http://www.uzbl.org}{Uzbl}}
   {}
   {}
   {Implementation of various early functionality in a small development team, using C and Git.}
@@ -147,14 +115,7 @@ functional non-strict languages.
   {Personal library management webapp written in Haskell.}
   {The product of necessity and boredom, as I needed a way to keep
    track of all my books. A read-only version can be seen
-   \schref{http://www.barrucadu.co.uk/bookdb/}{here}.}
-
-%  \heading{\schref{https://github.com/barrucadu/dejafu}{D\'{e}j\`{a} Fu}}
-%  Concurrency testing library for Haskell.\\
-%  \detail{Testing of functional correctness for concurrent
-%    programs. Concurrency testing is hard because of the
-%    nondeterminism imposed by the scheduler, but this can be overcome
-%    by implementing that bit of the runtime ourselves.}\\\\
+   \href{http://www.barrucadu.co.uk/bookdb/}{here}.}
 
 \cvitemdet{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
   {IRC bot written in Haskell}
