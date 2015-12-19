@@ -1,33 +1,36 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,11pt]{moderncv}
+
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+
+\firstname{Michael}
+\familyname{Walker}
+\address{York, North Yorkshire, England}
+\phone[mobile]{(+44) (0) 7966875255}
+\email{mike@barrucadu.co.uk}
+\homepage{www.barrucadu.co.uk}
+\social[linkedin]{barrucadu}
+\social[twitter]{barrucadu}
+\social[github]{barrucadu}
+\extrainfo{GPG: 9F58FC68}
 
 %A Few Useful Packages
-\usepackage{marvosym}
 \usepackage{fontspec} 					%for loading fonts
 \usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
-\RequirePackage{color,graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[big]{layaureo} 				%better formatting of the A4 page
 % an alternative to Layaureo can be ** \usepackage{fullpage} **
 \usepackage{supertabular} 				%for Grades
-\usepackage{titlesec}					%custom \section
 \usepackage{multirow}
-
-%Setup hyperref package, and colours for links
-\usepackage{hyperref}
-\definecolor{linkcolour}{rgb}{0.1,0.3,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
 %FONTS
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
 
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{3pt}{3pt}
+\AfterPreamble{
+ \definecolor{linkcolour}{rgb}{0.1,0.3,0.6}
+  \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+}
 
-\titleformat{\subsection}{\large\scshape\raggedright}{}{0em}{}
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
 %Tweak a bit the top margin
 \addtolength{\voffset}{-1.3cm}
 \addtolength{\textheight}{2.6cm}
@@ -55,70 +58,82 @@
 \font\fb=''[cmr10]'' %for use with \LaTeX command
 
 %--------------------HEADER-------------
-\par{\centering
-		{\Huge Michael \textsc{Walker}
-	}\bigskip\par}
 
-{\centering
-York, North Yorkshire, England \\[0.1cm]
-\mhref{mike@barrucadu.co.uk} (GPG: 9F58FC68) \\[0.1cm]
-\hhref{barrucadu.co.uk} \hhref{github.com/barrucadu} \hhref{linkedin.com/in/barrucadu} \\[0.1cm]
-(+44) (0) 7966875255\\
-}
+\par{\centering {\Huge Michael \textsc{Walker}}\bigskip\par}
+\makecvfoot
 
 %--------------------SECTIONS-----------------------------------
-\section{Research \& Publications}
+\section{\scshape Research \& Publications}
 Interested in writing reliable concurrent programs in purely
 functional non-strict languages.
 
-\begin{cvtable}
-  \when{2015} \schref{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}\\
-  \detail{Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
-\end{cvtable}
+\cvitem{\scshape 2015}
+  {\schref{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}
+  \newline{}
+  Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
 
-\section{Employment}
-\begin{cvtable}
-  \when{Oct 2015-- present} Postgraduate Teaching Assistant at \schref{http://cs.york.ac.uk}{University of York}\\
-  \detail{Assist with the teaching of first-year introductory
-    programming course.}\\\\
+\section{\scshape Employment}
 
-  \when{Oct 2014-- Jun 2015} Postgraduate Teaching Assistant at \schref{http://cs.york.ac.uk}{University of York}\\
-  \detail{Assisted with the teaching of first-year introductory
-    discrete mathematics course.}\\\\
+\cventry{\scshape Oct 2015-- present}
+  {Postgraduate Teaching Assistant}
+  {\schref{http://cs.york.ac.uk}{University of York}}
+  {York}
+  {}
+  {Assist with the teaching of first-year introductory programming course.}
 
-  \when{Jul--Sep 2014} Software Engineering Intern at \schref{http://www.corefiling.com/}{CoreFiling}\\
-  \detail{Refactoring and adding new functionality to \schref{https://github.com/CoreFiling/reviki}{Reviki}.
-    Integration with \schref{https://www.atlassian.com/software/jira}{JIRA}.}
+\cventry{\scshape Oct 2014-- Jun 2015}
+  {Postgraduate Teaching Assistant}
+  {\schref{http://cs.york.ac.uk}{University of York}}
+  {York}
+  {}
+  {Assisted with the teaching of first-year introductory discrete mathematics course.}
+
+\cventry{\scshape Jul--Sep 2014}
+  {Software Engineering Intern}
+  {\schref{http://www.corefiling.com/}{CoreFiling}}
+  {Oxford}
+  {}
+  {Refactoring and adding new functionality to \schref{https://github.com/CoreFiling/reviki}{Reviki}.
+   Integration with \schref{https://www.atlassian.com/software/jira}{JIRA}.}
 
 %  \when{Jul 2012} Internship at \schref{http://cs.york.ac.uk}{University of York} \\
 %  \detail{Use and analysis of data-mining tools.}
 
 %  \when{Aug 2010} Work experience at \schref{http://www.arrivaldesign.co.uk/}{Arrival Design} \\
 %  \detail{Website development in PHP and XHTML, including migration of code from ASP to PHP.}
-\end{cvtable}
 
-\section{Education}
-\begin{cvtable}
-  \when{2014-- present} Doctor of Philosophy (Computer Science), \textbf{University of York}, UK\\
-  \detail{Expected to graduate in 2017.}\\\\
+\section{\scshape Education}
 
-  \when{2010--2014} Master of Engineering (Computer Science), \textbf{University of York}, UK\\
-  \detail{Dissertation on verification of stop-the-world garbage
-    collectors. Achieved 2:1.}
+\cventry{\scshape 2014-- present}
+  {Doctor of Philosophy}
+  {\scshape University of York}
+  {}
+  {}
+  {Expected to graduate in 2017.}
+
+\cventry{\scshape 2010--2014}
+  {Master of Engineering}
+  {\scshape University of York}
+  {}
+  {\textit{2:1}}
+  {Dissertation on verification of stop-the-world garbage collectors.}
 
 %  \when{2008--2010} A Levels, \textbf{Hymers College}, UK\\
 %  \detail{Achieved grade A in Further Mathematics, Mathematics, and Physics. Achieved grade C in ICT.}
 
 %  \when{2008--2010} AS Levels, \textbf{Hymers College}, UK\\
 %  \detail{Achieved grade A in Computing. Achieved grade C in Psychology.}
-\end{cvtable}
 
-\section{Projects}
+\section{\scshape Projects}
 
 \subsection{Free Software Contributions}
-\begin{cvtable}
-  \when{2010--2015} Project Leader, \schref{http://www.archhurd.org}{Arch Hurd}\\
-  \detail{Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}\\\\
+
+\cventry{\scshape 2010--2015}
+  {Project Leader}
+  {\schref{http://www.archhurd.org}{Arch Hurd}}
+  {}
+  {}
+  {Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}
 
 %  \when{2009+} Web Developer, \schref{http://www.uzbl.org}{Uzbl}\\
 %  \detail{Maintenance of website. Additionally, the website runs on a VPS I maintain.}\\\\
@@ -126,17 +141,21 @@ functional non-strict languages.
 %  \when{2009+} Web Developer, \schref{http://www.gnu.org}{GNU Project}\\
 %  \detail{Resolution of website issues as they arise, as part of a team of other maintainers.}\\
 
-  \when{2009}  Developer, \schref{http://www.uzbl.org}{Uzbl}\\
-  \detail{Implementation of various early functionality in a small development team, using C and Git.}
-\end{cvtable}
+\cventry{\scshape 2009}
+  {Developer}
+  {\schref{http://www.uzbl.org}{Uzbl}}
+  {}
+  {}
+  {Implementation of various early functionality in a small development team, using C and Git.}
 
 \subsection{Personal}
-\begin{cvtable}
-  \heading{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
-  Personal library management webapp written in Haskell.\\
-  \detail{The product of necessity and boredom, as I needed a way to
-    keep track of all my books. A read-only version can be seen
-    \schref{http://www.barrucadu.co.uk/bookdb/}{here}.}\\\\
+
+\cvitem{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
+  {Personal library management webapp written in Haskell.
+   \newline{}
+   The product of necessity and boredom, as I needed a way to keep
+   track of all my books. A read-only version can be seen
+   \schref{http://www.barrucadu.co.uk/bookdb/}{here}.}
 
 %  \heading{\schref{https://github.com/barrucadu/dejafu}{D\'{e}j\`{a} Fu}}
 %  Concurrency testing library for Haskell.\\
@@ -145,14 +164,14 @@ functional non-strict languages.
 %    nondeterminism imposed by the scheduler, but this can be overcome
 %    by implementing that bit of the runtime ourselves.}\\\\
 
-  \heading{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
-  IRC bot written in Haskell.\\
-  \detail{A concurrent IRC bot capable of connecting to multiple
-    networks simultaneously and responding to commands and events as
-    they arise.}
-\end{cvtable}
+\cvitem{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
+  {IRC bot written in Haskell.
+   \newline{}
+   A concurrent IRC bot capable of connecting to multiple
+   networks simultaneously and responding to commands and events as
+   they arise.}
 
-\section{References}
+\section{\scshape References}
 Available upon request.
 
 \end{document}
