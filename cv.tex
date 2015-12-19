@@ -29,10 +29,23 @@
   \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
 }
 
-\newcommand{\schref}[2]{\href{#1}{\textsc{#2}}}
+% \cvitemdet{heading}{summary}{description}
+\newcommand{\cvitemdet}[3]{\cvitem{\scshape #1}{#2\newline{}\small#3}}
 
-% \cvitem with a detail field
-\newcommand{\cvitemdet}[3]{\cvitem{#1}{#2\newline{}\small#3}}
+% \published{year}{title}{publisher link}{authors}{venue}
+\newcommand{\published}[5]{\cvitemdet{#1}{\href{#3}{#2}}{#4. In \emph{#5}.}}
+
+% \employed{dates}{title}{organisation}{location}{description}
+\newcommand{\employed}[5]{\cventry{\scshape #1}{#2}{#3}{#4}{}{#5}}
+
+% \educated{dates}{level}{institute}{grade}{description}
+\newcommand{\educated}[5]{\cventry{\scshape #1}{#2}{#3}{}{#4}{#5}}
+
+% \contribution{dates}{title}{name}{url}{description}
+\newcommand{\contribution}[5]{\cventry{\scshape #1}{#2}{\href{#4}{#3}}{}{}{#5}}
+
+% \project{title}{url}{summary}{description}
+\newcommand{\project}[4]{\cvitemdet{\href{#2}{#1}}{#3}{#4}}
 
 \begin{document}
 
@@ -44,47 +57,44 @@
 
 \section{\scshape Publications}
 
-\cvitemdet{\scshape 2015}
-  {\href{https://dl.acm.org/citation.cfm?doid=2804302.2804306}{Déjà Fu: A Concurrency Testing Library for Haskell}}
-  {Michael Walker and Colin Runciman. In \textit{ACM SIGPLAN Symposium on Haskell}.}
+\published{2015}
+  {Déjà Fu: A Concurrency Testing Library for Haskell}
+  {https://dl.acm.org/citation.cfm?doid=2804302.2804306}
+  {Michael Walker and Colin Runciman}
+  {ACM SIGPLAN Symposium on Haskell}
 
 \section{\scshape Employment}
 
-\cventry{\scshape Oct 2015-- present}
+\employed{Oct 2015-- present}
   {Postgraduate Teaching Assistant}
   {University of York}
   {York}
-  {}
   {Assist with the teaching of first-year introductory programming course.}
 
-\cventry{\scshape Oct 2014-- Jun 2015}
+\employed{Oct 2014-- Jun 2015}
   {Postgraduate Teaching Assistant}
   {University of York}
   {York}
-  {}
   {Assisted with the teaching of first-year introductory discrete mathematics course.}
 
-\cventry{\scshape Jul--Sep 2014}
+\employed{Jul--Sep 2014}
   {Software Engineering Intern}
   {CoreFiling}
   {Oxford}
-  {}
   {Refactoring and adding new functionality to \href{https://github.com/CoreFiling/reviki}{Reviki}.
    Integration with \href{https://www.atlassian.com/software/jira}{JIRA}.}
 
 \section{\scshape Education}
 
-\cventry{\scshape 2014-- present}
+\educated{2014-- present}
   {Doctor of Philosophy}
   {University of York}
   {}
-  {}
   {Expected to graduate in 2017.}
 
-\cventry{\scshape 2010--2014}
+\educated{2010--2014}
   {Master of Engineering}
   {University of York}
-  {}
   {achieved 2:1}
   {Dissertation on verification of stop-the-world garbage collectors.}
 
@@ -92,29 +102,29 @@
 
 \subsection{Free Software Contributions}
 
-\cventry{\scshape 2010--2015}
+\contribution{2010--2015}
   {Project Leader}
-  {\href{http://www.archhurd.org}{Arch Hurd}}
-  {}
-  {}
+  {Arch Hurd}
+  {http://www.archhurd.org}
   {Website and server maintenance, managing development team, compiling and maintaining software, producing installation media.}
 
-\cventry{\scshape 2009}
+\contribution{2009}
   {Developer}
-  {\href{http://www.uzbl.org}{Uzbl}}
-  {}
-  {}
+  {Uzbl}
+  {http://www.uzbl.org}
   {Implementation of various early functionality in a small development team, using C and Git.}
 
 \vspace{0.2cm}
 \subsection{Personal}
 
-\cvitemdet{\schref{https://github.com/barrucadu/bookdb}{BookDB}}
+\project{BookDB}
+  {https://github.com/barrucadu/bookdb}
   {Personal library management webapp written in Haskell.}
   {The product of necessity and boredom, as I needed a way to keep
    track of all my books.}
 
-\cvitemdet{\schref{https://github.com/barrucadu/yukibot}{yukibot}}
+\project{yukibot}
+  {https://github.com/barrucadu/yukibot}
   {IRC bot written in Haskell}
   {A concurrent IRC bot capable of connecting to multiple
    networks simultaneously and responding to commands and events as
