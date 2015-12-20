@@ -28,17 +28,17 @@
 % \patchcmd{\section}{0.95ex}{0.33ex}{}{} -- doesn't work for some reason
 
 \makeatletter
-\RenewDocumentCommand{\section}{sm}{
-  \par\addvspace{2.5ex}
-  \phantomsection{}
-  \addcontentsline{toc}{section}{#2}
-  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.33ex}}}{\strut\sectionstyle{#2}}
+\RenewDocumentCommand{\section}{sm}{%
+  \par\addvspace{2.5ex}%
+  \phantomsection{}%
+  \addcontentsline{toc}{section}{#2}%
+  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.33ex}}}{\strut\sectionstyle{#2}}%
   \par\nobreak\addvspace{1ex}\@afterheading}
 \makeatother
 
 % Links
 \AfterPreamble{
- \definecolor{linkcolour}{rgb}{0.1,0.3,0.45}
+  \definecolor{linkcolour}{rgb}{0.1,0.3,0.45}
   \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
 }
 
