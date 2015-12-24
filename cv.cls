@@ -3,6 +3,16 @@
 
 \LoadClass{moderncv}
 
+\RequirePackage{ifthen}
+
+\newif\iflong
+\longfalse
+
+\DeclareOption{short}{\longfalse}
+\DeclareOption{long}{\longtrue}
+
+\ProcessOptions
+
 %%% Fonts
 \RequirePackage{fontspec}
 
@@ -17,26 +27,22 @@
 \RequirePackage[big]{layaureo}
 
 % Header and footer
-\makeatletter
 \renewcommand{\makecvhead}{%
   \begin{center}%
     \namestyle{\@firstname\ \textsc{\@lastname}}%
   \end{center}}
-\makeatother
 
 \AtBeginDocument{%
   \makecvhead%
   \makecvfoot}
 
 % Section headings
-\makeatletter
 \RenewDocumentCommand{\section}{sm}{%
   \par\addvspace{2.5ex}%
   \phantomsection{}%
   \addcontentsline{toc}{section}{#2}%
   \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.33ex}}}{\strut\sectionstyle{#2}}%
   \par\nobreak\addvspace{1ex}\@afterheading}
-\makeatother
 
 %%% Hyperlinks
 \AfterPreamble{%
@@ -68,3 +74,11 @@
 
 % \project{title}{url}{summary}{description}
 \newcommand{\project}[4]{\cventry{#1}{#3}{}{}{#2}{#4}}
+
+% Long-only entries
+\usepackage{comment}
+\iflong
+  \newenvironment{more}{}{}
+\else
+  \excludecomment{more}
+\fi
