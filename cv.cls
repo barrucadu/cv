@@ -41,8 +41,15 @@
   \par\addvspace{2.5ex}%
   \phantomsection{}%
   \addcontentsline{toc}{section}{#2}%
-  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.33ex}}}{\strut\sectionstyle{#2}}%
+  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.33ex}}}{\strut\sectionstyle{\scshape#2}}%
   \par\nobreak\addvspace{1ex}\@afterheading}
+
+\RenewDocumentCommand{\subsection}{sm}{%
+  \par\addvspace{1ex}%
+  \phantomsection{}%
+  \addcontentsline{toc}{subsection}{#2}%
+  \cvitem[0ex]{}{\strut\subsectionstyle{\bfseries#2}}%
+  \par\nobreak\addvspace{.5ex}\@afterheading}%
 
 %%% Hyperlinks
 \AfterPreamble{%
