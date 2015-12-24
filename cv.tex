@@ -20,12 +20,11 @@
 % Layout
 \moderncvstyle{casual}
 \moderncvcolor{blue}
+\setlength{\hintscolumnwidth}{3cm}
 
 \usepackage[big]{layaureo}
 
-% Thinner section lines
-
-% \patchcmd{\section}{0.95ex}{0.33ex}{}{} -- doesn't work for some reason
+% moderncv patches
 
 \makeatletter
 \RenewDocumentCommand{\section}{sm}{%
@@ -36,29 +35,36 @@
   \par\nobreak\addvspace{1ex}\@afterheading}
 \makeatother
 
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{\itshape#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, #4}%
+    \ifthenelse{\equal{#5}{}}{}{, {\itshape#5}}.%
+    \ifthenelse{\equal{#6}{}}{}{\hfill\href{#6}{#6}}%
+    \strut%
+    \ifx&#7&%
+    \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+
 % Links
 \AfterPreamble{
   \definecolor{linkcolour}{rgb}{0.1,0.3,0.45}
   \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
 }
 
-% \cvitemdet{heading}{summary}{description}
-\newcommand{\cvitemdet}[3]{\cvitem{\scshape #1}{#2\newline{}\small#3}}
-
-% \published{year}{title}{publisher link}{authors}{venue}
-\newcommand{\published}[5]{\cvitemdet{#1}{\href{#3}{#2}}{#4. In \emph{#5}.}}
+% \published{year}{title}{publisher}{authors}{venue}
+\newcommand{\published}[5]{\cventry{#3}{#1}{#2}{}{}{#4. In \textit{#5}.}}
 
 % \employed{dates}{title}{organisation}{location}{description}
-\newcommand{\employed}[5]{\cventry{\scshape #1}{#2}{#3}{#4}{}{#5}}
+\newcommand{\employed}[5]{\cventry{#3}{#1}{#2}{#4}{}{#5}}
 
 % \educated{dates}{level}{institute}{grade}{description}
-\newcommand{\educated}[5]{\cventry{\scshape #1}{#2}{#3}{}{#4}{#5}}
+\newcommand{\educated}[5]{\cventry{#3}{#1}{#2}{#4}{}{#5}}
 
 % \contribution{dates}{title}{name}{url}{description}
-\newcommand{\contribution}[5]{\cventry{\scshape #1}{#2}{\href{#4}{#3}}{}{}{#5}}
+\newcommand{\contribution}[5]{\cventry{#3}{#1}{#2}{}{#4}{#5}}
 
 % \project{title}{url}{summary}{description}
-\newcommand{\project}[4]{\cvitemdet{\href{#2}{#1}}{#3}{#4}}
+\newcommand{\project}[4]{\cventry{#1}{#3}{}{}{#2}{#4}}
 
 \begin{document}
 
@@ -72,21 +78,21 @@
 
 \section{\scshape Publications}
 
-\published{2015}
+\published{Sep 2015}
   {Déjà Fu: A Concurrency Testing Library for Haskell}
-  {https://dl.acm.org/citation.cfm?doid=2804302.2804306}
+  {ACM SIGPLAN}
   {Michael Walker and Colin Runciman}
   {ACM SIGPLAN Symposium on Haskell}
 
 \section{\scshape Employment}
 
-\employed{Oct 2015-- present}
+\employed{Oct 2015--present}
   {Postgraduate Teaching Assistant}
   {University of York}
   {York}
   {Assist with the teaching of first-year introductory programming course.}
 
-\employed{Oct 2014-- Jun 2015}
+\employed{Oct 2014--Jun 2015}
   {Postgraduate Teaching Assistant}
   {University of York}
   {York}
@@ -102,7 +108,7 @@
 
 \section{\scshape Education}
 
-\educated{2014-- present}
+\educated{2014--present}
   {Doctor of Philosophy}
   {University of York}
   {}
