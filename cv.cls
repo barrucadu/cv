@@ -26,6 +26,9 @@
 
 \RequirePackage[big]{layaureo}
 
+% PDF title
+\title{Curriculum Vitae}
+
 % Header and footer
 \renewcommand{\makecvhead}{%
   \begin{center}%
