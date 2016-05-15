@@ -5,14 +5,6 @@
 
 \RequirePackage{ifthen}
 
-\newif\iflong
-\longfalse
-
-\DeclareOption{short}{\longfalse}
-\DeclareOption{long}{\longtrue}
-
-\ProcessOptions
-
 %%% Fonts
 \RequirePackage{fontspec}
 
@@ -84,11 +76,3 @@
 
 % \project{title}{url}{summary}{description}
 \newcommand{\project}[4]{\cventry{#1}{#3}{}{}{#2}{#4}}
-
-% Long-only entries
-\usepackage{comment}
-\iflong
-  \newenvironment{more}{}{}
-\else
-  \excludecomment{more}
-\fi
