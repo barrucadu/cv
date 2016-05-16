@@ -159,12 +159,12 @@ By #4, #1. In \textit{#5}.%
 
 % \contribution{dates}{title}{name}{url}{description}
 \newcommand{\contribution}[5]{%
-\entryhead{#3}{#2}{#1. \hfill \httplink{#4}}%
+\entryhead{#3}{#2}{#1. \hfill \link{#4}}%
 #5%
 \sectionspace}
 
 % \project{title}{url}{summary}{description}
 \newcommand{\project}[4]{%
-\entryhead{#1}{#3}{\hfill \httplink{#2}}%
+\entryhead{#1}{#3}{\hfill \link{#2}}%
 #4%
 \sectionspace}
