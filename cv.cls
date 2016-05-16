@@ -33,6 +33,12 @@
     {{\color{linkcolour}\href{http://#2}{#2}}}%
     {{\color{linkcolour}\href{http://#2}{#1}}}}
 
+% \githublink[optional text]{user}{repo}
+\newcommand*{\githublink}[3][]{%
+  \ifthenelse{\equal{#1}{}}%
+    {{\color{linkcolour}\href{https://github.com/#2/#3}{github: #2/#3}}}%
+    {{\color{linkcolour}\href{https://github.com/#2/#3}{#1}}}}
+
 % \emaillink[optional text]{link}
 \newcommand*{\emaillink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -157,14 +163,14 @@ By #4, #1. In \textit{#5}.%
 \inlineextra{#1\ifthenelse{\equal{#3}{}}{}{, #3}.\\}%
 #4}
 
-% \contribution{dates}{title}{name}{url}{description}
+% \contribution{dates}{title}{name}{link}{description}
 \newcommand{\contribution}[5]{%
-\entryhead{#3}{#2}{#1. \hfill \link{#4}}%
+\entryhead{#3}{#2}{#1. \hfill #4}%
 #5%
 \sectionspace}
 
-% \project{title}{url}{summary}{description}
+% \project{title}{link}{summary}{description}
 \newcommand{\project}[4]{%
-\entryhead{#1}{#3}{\hfill \link{#2}}%
+\entryhead{#1}{#3}{\hfill #2}%
 #4%
 \sectionspace}
