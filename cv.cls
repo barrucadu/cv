@@ -174,3 +174,9 @@ By #4, #1. In \textit{#5}.%
 \entryhead{#1}{#3}{\hfill #2}%
 #4%
 \sectionspace}
+
+% -----------------------------------------------------------------------------
+% -- Extras
+
+% Emphasise a keyword.
+\newcommand{\technology}{\textbf}

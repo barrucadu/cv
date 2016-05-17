@@ -40,22 +40,28 @@
   {Software Engineering Intern}
   {CoreFiling}
   {Oxford}
-  {Refactored an in-house wiki program, Reviki, in particular the
-    development of a parser/renderer using ANTLR in Java and the
-    integration of this renderer with JIRA.}
+  {\begin{tightitemize}
+    \item Refactored an extensively-used in-house wiki program, fixing
+      numerous long-standing bugs.
+    \item Used \technology{ANTLR} in \technology{Java} to implement a
+      parser/renderer for a Creole-like markup language.
+    \item Wrote a \technology{JIRA} plug-in enabling the use of this
+      markup in issue descriptions and comments.
+    \end{tightitemize}}
 
 \section{Education}
 
 \begin{educated}{University of York}
 \degree{2014–now}
-  {Doctor of Philosophy}
+  {Computer Science (Ph.D)}
   {}
-  {Expected to submit in 2017.}
+  {Expected to submit in December 2017.}
 
 \degree{2010–2014}
-  {Master of Engineering}
+  {Computer Systems and Software Engineering (M.Eng)}
   {achieved 2:1}
-  {Dissertation on verification of stop-the-world garbage collectors.}
+  {Dissertation on the formal verification of stop-the-world garbage
+    collectors, which received first-class honours.}
 \end{educated}
 
 \section{Open Source Contributions}
@@ -63,39 +69,33 @@
 \contribution{2010–2015}
   {Project Leader}
   {Arch Hurd}
-  {Packaged and maintained software, managed small development team,
-    produced bootable installation media. Currently maintain website
-    and server.}
   {\httplink{www.archhurd.org}}
+  {Managed a small, geographically-diverse, development team porting
+    core \technology{Linux} software to the \technology{GNU/Hurd}
+    platform. Also produced installation media and maintained a
+    website and online software repository.}
 
 \contribution{2009}
   {Developer}
   {Uzbl}
-  {Helped with the implementation of early-stage functionality in a
-    small development team.}
   {\httplink{www.uzbl.org}}
+  {Helped with the implementation of early-stage functionality of an
+    open-source web browser in a small development team using
+    \technology{C} and \technology{git}.}
 
 \section{Projects}
-
-\project{BookDB}
-  {\githublink{barrucadu}{bookdb}}
-  {Personal library webapp}
-  {Maintains a database of books, keeping track of information such as
-    the location and borrower of each book, and presents some
-    statistics. Written in Haskell.}
 
 \project{D\'ej\`a Fu}
   {\githublink{barrucadu}{dejafu}}
   {Concurrency testing library}
-  {Provides an abstraction over standard Haskell concurrency
-    facilitating systematic testing and search for error. Developed
-    for my postgraduate studies.}
-
-\project{yukibot}
-  {\githublink{barrucadu}{yukibot}}
-  {IRC bot}
-  {A concurrent IRC bot capable of connecting to multiple
-   networks simultaneously and responding to commands and events as
-   they arise.}
+  {\begin{tightitemize}
+    \item Allows the deterministic and systematic testing of
+      concurrent \technology{Haskell} programs.
+    \item Supports almost all of standard Haskell concurrency.
+    \item Has realistic execution semantics, including an
+      implementation of the \technology{x86} / \technology{x86\_64}
+      relaxed memory model.
+    \item Resulted in one peer-reviewed publication.
+    \end{tightitemize}}
 
 \end{document}
