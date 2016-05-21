@@ -79,8 +79,8 @@ Last Updated on \today % Last Updated text
 \titleformat{\section}{ % Customize the large section titles
 \sectionspace % Additional spacing before the horizontal line
 \color{headings}\titlerule[.5pt] % Horizontal line
-\color{headings}\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
-% [barrucadu edit]: added a horizontal rule
+\color{headings}\scshape\fontspec[Path = fonts/lato/, LetterSpace=4pt]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+% [barrucadu edit]: added a horizontal rule, increase letter spacing
 
 \titleformat{\subsection}{ % Customize the subsections and places worked/studied titles
 \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
