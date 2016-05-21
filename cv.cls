@@ -7,48 +7,72 @@
 % -----------------------------------------------------------------------------
 % -- Document set-up
 
-\LoadClass{deedy-resume}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+\LoadClass{article}
 
 \RequirePackage{ifthen}
 \RequirePackage{etoolbox}
 
 \title{Curriculum Vitae}
 
+\RequirePackage[hmargin=2cm, vmargin=0.75cm]{geometry}
 \addtolength{\textheight}{-2cm}
+
+% -----------------------------------------------------------------------------
+% -- Fonts and Colours
+
+\RequirePackage{fontspec}
+
+\setmainfont[Path=fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path =
+fonts/raleway/]{Raleway-ExtraLight}
+
+\RequirePackage[usenames,dvipsnames]{xcolor}
+
+\definecolor{links}{rgb}{0.1,0.3,0.45}
+\definecolor{primary}{HTML}{2b2b2b}
+\definecolor{headings}{HTML}{6A6A6A}
+\definecolor{subheadings}{HTML}{333333}
 
 % -----------------------------------------------------------------------------
 % -- Hyperlinks
 
-\definecolor{linkcolour}{rgb}{0.1,0.3,0.45}
+\RequirePackage{hyperref}
 
 % \link[optional text]{link}
 \newcommand*{\link}[2][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{linkcolour}\href{#2}{#2}}}%
-    {{\color{linkcolour}\href{#2}{#1}}}}
+    {{\color{links}\href{#2}{#2}}}%
+    {{\color{links}\href{#2}{#1}}}}
 
 % \httplink[optional text]{link}
 \newcommand*{\httplink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{linkcolour}\href{http://#2}{#2}}}%
-    {{\color{linkcolour}\href{http://#2}{#1}}}}
+    {{\color{links}\href{http://#2}{#2}}}%
+    {{\color{links}\href{http://#2}{#1}}}}
 
 % \githublink[optional text]{user}{repo}
 \newcommand*{\githublink}[3][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{linkcolour}\href{https://github.com/#2/#3}{github: #2/#3}}}%
-    {{\color{linkcolour}\href{https://github.com/#2/#3}{#1}}}}
+    {{\color{links}\href{https://github.com/#2/#3}{github: #2/#3}}}%
+    {{\color{links}\href{https://github.com/#2/#3}{#1}}}}
 
 % \emaillink[optional text]{link}
 \newcommand*{\emaillink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{linkcolour}\href{mailto:#2}{#2}}}%
-    {{\color{linkcolour}\href{mailto:#2}{#1}}}}
+    {{\color{links}\href{mailto:#2}{#2}}}%
+    {{\color{links}\href{mailto:#2}{#1}}}}
 
 % -----------------------------------------------------------------------------
 % -- Header and footer
 
-\newcommand{\makecvhead}{\namesection{\@firstname}{\@lastname}{}}
+\newcommand{\makecvhead}{%
+\begin{center}%
+\fontsize{40pt}{60pt}%
+\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@firstname%
+\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont\@lastname%
+\end{center}}
 
 % All junk to make mocerncvfooti work.
 \newcommand{\makecvfoot}{}
@@ -96,6 +120,20 @@
 \pagestyle{plain}
 
 % -----------------------------------------------------------------------------
+% -- Section headings
+
+\RequirePackage{titlesec}
+
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\newcommand{\sectionspace}{\vspace{8pt}}
+
+\titleformat{\section}{%
+\sectionspace%
+\color{headings}%
+\titlerule[.5pt]%
+\scshape\fontspec[Path = fonts/lato/, LetterSpace=4pt]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+
+% -----------------------------------------------------------------------------
 % -- Personal details
 
 % Note: these must define the same things as moderncv so that
@@ -130,6 +168,9 @@
 
 % -----------------------------------------------------------------------------
 % -- Entries
+
+\newcommand{\runsubsection}[1]{%
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
 
 \newcommand{\inlinemain}[1]{%
 \color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}{\fontsize{11pt}{13pt}\selectfont #1} \normalfont}
@@ -182,3 +223,6 @@ By #4, #1. In \textit{#5}.%
 
 % Emphasise a keyword.
 \newcommand{\technology}{\textbf}
+
+% 'itemize', but with less spacing.
+\newenvironment{tightitemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
