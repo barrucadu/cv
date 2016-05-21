@@ -63,9 +63,8 @@ Last Updated on \today % Last Updated text
 \centering{ % Center the contact information
 \color{headings} % Use the headings color
 \fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3} % Contact information font
-\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}} % Horizontal rule
-\vspace{-5pt} % Reduce whitespace after the rule slightly
 }
+% [barrucadu edit]: removed the horizontal rule
 
 %----------------------------------------------------------------------------------------
 %	SECTION TITLE STYLING AND SPACING
@@ -78,7 +77,10 @@ Last Updated on \today % Last Updated text
 \newcommand{\sectionspace}{\vspace{8pt}} % Defines a command to add a set amount of space after sections and subsections
 
 \titleformat{\section}{ % Customize the large section titles
+\sectionspace % Additional spacing before the horizontal line
+\color{headings}\titlerule[.5pt] % Horizontal line
 \color{headings}\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+% [barrucadu edit]: added a horizontal rule
 
 \titleformat{\subsection}{ % Customize the subsections and places worked/studied titles
 \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
