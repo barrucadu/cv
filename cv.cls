@@ -140,7 +140,8 @@
 \newcommand{\entryhead}[3]{%
 \runsubsection{#1}%
 \inlinemain{\ifthenelse{\equal{#2}{}}{}{| #2}}%
-\inlineextra{#3\\}}
+\inlineextra{#3\\}%
+\color{primary}}
 
 % \published{year}{title}{publisher}{authors}{venue}
 \newcommand{\published}[5]{%
@@ -161,6 +162,7 @@ By #4, #1. In \textit{#5}.%
 \newcommand{\degree}[4]{%
 \inlinemain{#2}%
 \inlineextra{#1\ifthenelse{\equal{#3}{}}{}{, #3}.\\}%
+\color{primary}%
 #4}
 
 % \contribution{dates}{title}{name}{link}{description}
