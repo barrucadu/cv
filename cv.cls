@@ -71,6 +71,7 @@ fonts/raleway/]{Raleway-ExtraLight}
 \begin{center}%
 \fontsize{40pt}{60pt}%
 \fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@firstname%
+\hspace{10pt}%
 \fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont\@lastname%
 \end{center}}
 
