@@ -68,12 +68,23 @@ fonts/raleway/]{Raleway-ExtraLight}
 % -----------------------------------------------------------------------------
 % -- Header and footer
 
+\def\@prenom{}
+\def\@postnom{}
+
+\newcommand{\fake}[1]{\leavevmode\hphantom{#1}}
+
 \newcommand{\makecvhead}{%
 \begin{center}%
+\fontsize{20pt}{30pt}%
+\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\fake{\@postnom}\@prenom%
+\hspace{10pt}%
 \fontsize{40pt}{60pt}%
 \fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@firstname%
 \hspace{10pt}%
 \fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont\@lastname%
+\hspace{10pt}%
+\fontsize{20pt}{30pt}%
+\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@postnom\fake{\@prenom}%
 \end{center}}
 
 % All junk to make mocerncvfooti work.
@@ -145,6 +156,8 @@ fonts/raleway/]{Raleway-ExtraLight}
 
 \newcommand*{\firstname}[1]{\def\@firstname{#1}}
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
+\newcommand*{\prenominals}[1]{\def\@prenom{#1}}
+\newcommand*{\postnominals}[1]{\def\@postnom{#1}}
 \newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
 
 \NewDocumentCommand{\address}{mG{}G{}}{\def\@addressstreet{#1}\def\@addresscity{#2}\def\@addresscountry{#3}}
