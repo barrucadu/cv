@@ -34,6 +34,7 @@ fonts/raleway/]{Raleway-ExtraLight}
 \definecolor{primary}{HTML}{2b2b2b}
 \definecolor{headings}{HTML}{6A6A6A}
 \definecolor{subheadings}{HTML}{333333}
+\definecolor{rules}{HTML}{dddddd}
 
 % -----------------------------------------------------------------------------
 % -- Hyperlinks
@@ -130,8 +131,8 @@ fonts/raleway/]{Raleway-ExtraLight}
 
 \titleformat{\section}{%
 \sectionspace%
+\titleline{\noindent\makebox[\linewidth]{\color{rules}\rule{\paperwidth}{0.5pt}}}%
 \color{headings}%
-\titlerule[.5pt]%
 \scshape\fontspec[Path = fonts/lato/, LetterSpace=4pt]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
 
 % -----------------------------------------------------------------------------
