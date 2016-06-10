@@ -7,12 +7,18 @@
 % -----------------------------------------------------------------------------
 % -- Document set-up
 
+\RequirePackage{ifthen}
+\RequirePackage{etoolbox}
+
+\newtoggle{anonymous}
+\togglefalse{anonymous}
+
+% Hide contact details, change names and URLs in entries.
+\DeclareOption{anonymous}{\toggletrue{anonymous}}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
-
-\RequirePackage{ifthen}
-\RequirePackage{etoolbox}
 
 \title{Curriculum Vitae}
 
@@ -154,23 +160,21 @@ fonts/raleway/]{Raleway-ExtraLight}
 
 \RequirePackage{moderncvcollection}
 
-\newcommand*{\firstname}[1]{\def\@firstname{#1}}
-\newcommand*{\familyname}[1]{\def\@lastname{#1}}
+\collectionnew{phones}
+\collectionnew{socials}
+
 \newcommand*{\prenominals}[1]{\def\@prenom{#1}}
 \newcommand*{\postnominals}[1]{\def\@postnom{#1}}
-\newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
 
-\NewDocumentCommand{\address}{mG{}G{}}{\def\@addressstreet{#1}\def\@addresscity{#2}\def\@addresscountry{#3}}
-
-\newcommand*{\email}[1]{\def\@email{#1}}
-
-\newcommand*{\homepage}[1]{\def\@homepage{#1}}
-
-\collectionnew{phones}
-\newcommand*{\phone}[2][fixed]{\collectionadd[#1]{phones}{#2}}
-
-\collectionnew{socials}
-\NewDocumentCommand{\social}{O{}O{}m}{%
+\newcommand*{\@realfirstname}[1]{\def\@firstname{#1}}
+\newcommand*{\@realfamilyname}[1]{\def\@lastname{#1}}
+\newcommand*{\@realname}[2]{\def\@firstname{#1}\def\@lastname{#2}}
+\newcommand*{\@realemail}[1]{\def\@email{#1}}
+\newcommand*{\@realhomepage}[1]{\def\@homepage{#1}}
+\newcommand*{\@realphone}[2][fixed]{\collectionadd[#1]{phones}{#2}}
+\newcommand*{\@realextrainfo}[1]{\def\@extrainfo{#1}}
+\NewDocumentCommand{\@realaddress}{mG{}G{}}{\def\@addressstreet{#1}\def\@addresscity{#2}\def\@addresscountry{#3}}
+\NewDocumentCommand{\@realsocial}{O{}O{}m}{%
   \ifthenelse{\equal{#2}{}}%
     {%
       \ifthenelse{\equal{#1}{linkedin}}{\collectionadd[linkedin]{socials}{\protect\httplink[#3]{www.linkedin.com/in/#3}}}{}%
@@ -179,7 +183,52 @@ fonts/raleway/]{Raleway-ExtraLight}
     }
     {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
 
-\newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
+% If anonymous, discard all personal information other than pre- and
+% postnominals.
+\newcommand*{\firstname}[1]{%
+\iftoggle{anonymous}%
+{\@realfirstname{Firstname}}%
+{\@realfirstname{#1}}}
+
+\newcommand*{\familyname}[1]{%
+\iftoggle{anonymous}%
+{\@realfamilyname{Lastname}}%
+{\@realfamilyname{#1}}}
+
+\newcommand*{\name}[2]{%
+\iftoggle{anonymous}%
+{\@realname{Firstname}{Lastname}}%
+{\@realname{#1}{#2}}}
+
+\newcommand*{\email}[1]{%
+\iftoggle{anonymous}%
+{\@realemail{email@my-website.com}}%
+{\@realemail{#1}}}
+
+\newcommand*{\homepage}[1]{%
+\iftoggle{anonymous}%
+{\@realhomepage{www.my-website.com}}%
+{\@realhomepage{#1}}}
+
+\newcommand*{\phone}[2][fixed]{%
+\iftoggle{anonymous}%
+{\@realphone[#1]{(area) phone number}}%
+{\@realphone[#1]{#2}}}
+
+\newcommand*{\extrainfo}[1]{%
+\iftoggle{anonymous}%
+{\@realextrainfo{extra info}}%
+{\@realextrainfo{#1}}}
+
+\NewDocumentCommand{\address}{mG{}G{}}{%
+\iftoggle{anonymous}%
+{\@realaddress{city}{county}{country}}%
+{\@realaddress{#1}{#2}{#3}}}
+
+\NewDocumentCommand{\social}{O{}O{}m}{%
+\iftoggle{anonymous}%
+{\@realsocial[#1][#2]{username}}%
+{\@realsocial[#1][#2]{#3}}}
 
 % -----------------------------------------------------------------------------
 % -- Entries
@@ -200,19 +249,21 @@ fonts/raleway/]{Raleway-ExtraLight}
 \color{primary}}
 
 % \published{year}{title}{publisher}{authors}{venue}
-\newcommand{\published}[5]{%
+\newcommand{\@published}[5]{%
 \entryhead{#2}{}{}%
 By #4, #1. In \textit{#5}.%
 \sectionspace}
 
 % \employed{dates}{title}{organisation}{location}{description}
-\newcommand{\employed}[5]{%
+\newcommand{\@employed}[5]{%
 \entryhead{#3}{#2}{#1, #4.}%
 #5%
 \sectionspace}
 
 % \begin{educated}{institute} degrees \end{educated}
-\newenvironment{educated}[1]{\runsubsection{#1\\}}{\sectionspace}
+\iftoggle{anonymous}
+{\newenvironment{educated}[1]{\runsubsection{Some Institute\\}}{\sectionspace}}
+{\newenvironment{educated}[1]{\runsubsection{#1\\}}{\sectionspace}}
 
 % \degree{dates}{qualification}{grade}{description}
 \newcommand{\degree}[4]{%
@@ -222,16 +273,37 @@ By #4, #1. In \textit{#5}.%
 #4}
 
 % \contribution{dates}{title}{name}{link}{description}
-\newcommand{\contribution}[5]{%
+\newcommand{\@contribution}[5]{%
 \entryhead{#3}{#2}{#1. \hfill #4}%
 #5%
 \sectionspace}
 
 % \project{title}{link}{summary}{description}
-\newcommand{\project}[4]{%
+\newcommand{\@project}[4]{%
 \entryhead{#1}{#3}{\hfill #2}%
 #4%
 \sectionspace}
+
+% If anonymous put in dummy values for identifying fields.
+\newcommand{\published}[5]{%
+\iftoggle{anonymous}%
+{\@published{#1}{Some Publication}{#3}{Some Authors}{#5}}%
+{\@published{#1}{#2}{#3}{#4}{#5}}}
+
+\newcommand{\employed}[5]{%
+\iftoggle{anonymous}%
+{\@employed{#1}{#2}{Some Company}{#4}{#5}}%
+{\@employed{#1}{#2}{#3}{#4}{#5}}}
+
+\newcommand{\contribution}[5]{%
+\iftoggle{anonymous}%
+{\@contribution{#1}{#2}{Some OSS Project}{\httplink{www.example.com}}{#5}}%
+{\@contribution{#1}{#2}{#3}{#4}{#5}}}
+
+\newcommand{\project}[4]{
+\iftoggle{anonymous}%
+{\@project{Some Project}{\httplink{www.example.com}}{#3}{#4}}%
+{\@project{#1}{#2}{#3}{#4}}}
 
 % -----------------------------------------------------------------------------
 % -- Extras
