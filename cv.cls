@@ -31,8 +31,12 @@
 \RequirePackage{fontspec}
 
 \setmainfont[Path=fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path =
-fonts/raleway/]{Raleway-ExtraLight}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path=fonts/raleway/]{Raleway-ExtraLight}
+
+\newfontfamily{\FA}[Path=./fonts/fontawesome/]{FontAwesome}
+\newcommand*{\faicon}[1]{{\csname faicon@#1\endcsname}}
+\input{extra-tex-files/fontawesomesymbols-generic.tex}
+\input{extra-tex-files/fontawesomesymbols-xeluatex.tex}
 
 \RequirePackage[usenames,dvipsnames]{xcolor}
 
