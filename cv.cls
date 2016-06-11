@@ -154,7 +154,17 @@
 \sectionspace%
 \titleline{\noindent\makebox[\linewidth]{\color{rules}\rule{\paperwidth}{0.5pt}}}%
 \color{headings}%
-\fontspec[Path = fonts/lato/, LetterSpace=4pt]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+\fontspec[Path=fonts/lato/,LetterSpace=4pt]{Lato-Lig}%
+\fontsize{16pt}{24pt}%
+\selectfont\raggedright\uppercase}{}{0em}{}
+
+% Starred sections don't get the overline.
+\titleformat{name=\section,numberless}{%
+\sectionspace%
+\color{headings}%
+\fontspec[Path=fonts/lato/,LetterSpace=4pt]{Lato-Lig}%
+\fontsize{16pt}{24pt}%
+\selectfont\raggedright\uppercase}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
