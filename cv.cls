@@ -323,7 +323,7 @@ By #4, #1. In \textit{#5}.%
 % -- Extras
 
 % Emphasise a keyword.
-\newcommand{\technology}{\textbf}
+\newcommand{\keyword}{\textbf}
 
 % 'itemize', but with less spacing.
 \newenvironment{tightitemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}

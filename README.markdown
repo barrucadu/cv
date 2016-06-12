@@ -113,7 +113,7 @@ the given link or email address. The default text for a github link is
 "github: username/repository".
 
 ```tex
-\technology{word}
+\keyword{word}
 ```
 
 Emboldens a term.
