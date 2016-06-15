@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cv}[2016/05/16 barrucadu's cv]
+\ProvidesClass{barrucadu-cv}[2016/05/16 barrucadu's cv class]
 
 % Some of the files included in "extra-tex-files" have been edited by
 % me, grep for "[barrucadu edit]".

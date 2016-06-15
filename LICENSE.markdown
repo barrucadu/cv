@@ -25,7 +25,7 @@ Everything is under the LaTeX Project Public License:
 - **moderncv:**    https://www.ctan.org/pkg/moderncv
 - **titlesec:**    https://www.ctan.org/pkg/titlesec
 
-cv.cls
+barrucadu-cv.cls
 ---
 
 As this is mostly a derivative of [Deedy-Resume], which is Apache

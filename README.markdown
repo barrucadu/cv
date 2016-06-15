@@ -14,7 +14,7 @@ Usage
 -----
 
 ```tex
-\documentclass[a4paper]{cv}
+\documentclass[a4paper]{barrucadu-cv}
 ```
 
 It is intended that the CV be broken into sections, where each section
@@ -25,7 +25,7 @@ types which may not look good if juxtaposed.
 ### Anonymous mode
 
 ```tex
-\documentclass[a4paper, anonymous]{cv}
+\documentclass[a4paper, anonymous]{barrucadu-cv}
 ```
 
 Useful for sharing on reddit. This substitutes placeholders for:
