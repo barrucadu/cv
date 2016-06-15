@@ -33,6 +33,9 @@
 \setmainfont[Path=fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path=fonts/raleway/]{Raleway-ExtraLight}
 
+\NewDocumentCommand{\lato}{m}{\fontspec[Path=fonts/lato/]{Lato-#1}\selectfont}
+\NewDocumentCommand{\raleway}{m}{\fontspec[Path=fonts/raleway/]{Raleway-#1}\selectfont}
+
 \newfontfamily{\FA}[Path=./fonts/fontawesome/]{FontAwesome}
 \newcommand*{\faicon}[1]{{\csname faicon@#1\endcsname}}
 \input{extra-tex-files/fontawesomesymbols-generic.tex}
@@ -85,16 +88,13 @@
 
 \newcommand{\makecvhead}{%
 \begin{center}%
-\fontsize{20pt}{30pt}%
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\fake{\@postnom}\@prenom%
+\fontsize{20pt}{30pt}\raleway{ExtraLight}\fake{\@postnom}\@prenom%
 \hspace{10pt}%
-\fontsize{40pt}{60pt}%
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@firstname%
+\fontsize{40pt}{60pt}\raleway{ExtraLight}\@firstname%
 \hspace{10pt}%
-\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont\@lastname%
+\raleway{Light}\@lastname%
 \hspace{10pt}%
-\fontsize{20pt}{30pt}%
-\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont\@postnom\fake{\@prenom}%
+\fontsize{20pt}{30pt}\raleway{ExtraLight}\@postnom\fake{\@prenom}%
 \end{center}}
 
 % All junk to make mocerncvfooti work.
@@ -150,21 +150,18 @@
 \titlespacing*{\section}{0pt}{0pt}{0pt}
 \newcommand{\sectionspace}{\vspace{8pt}}
 
+% My website uses Raleway-ExtraLight here, but I think that looks too
+% thin in the PDF. Lato-Lig looks basically the same in this context
+% and is a tad thicker.
+\newcommand{\headingstyle}{\color{headings}\fontsize{16pt}{24pt}\lato{Lig}\raggedright\uppercase}
+
 \titleformat{\section}{%
 \sectionspace%
 \titleline{\noindent\makebox[\linewidth]{\color{rules}\rule{\paperwidth}{0.5pt}}}%
-\color{headings}%
-\fontspec[Path=fonts/lato/,LetterSpace=4pt]{Lato-Lig}%
-\fontsize{16pt}{24pt}%
-\selectfont\raggedright\uppercase}{}{0em}{}
+\headingstyle}{}{0em}{}
 
 % Starred sections don't get the overline.
-\titleformat{name=\section,numberless}{%
-\sectionspace%
-\color{headings}%
-\fontspec[Path=fonts/lato/,LetterSpace=4pt]{Lato-Lig}%
-\fontsize{16pt}{24pt}%
-\selectfont\raggedright\uppercase}{}{0em}{}
+\titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
@@ -247,18 +244,20 @@
 % -----------------------------------------------------------------------------
 % -- Entries
 
-\newcommand{\runsubsection}[1]{%
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries {#1} \normalfont}
+% Another website divergence, rather than use Merriweather-Black just
+% stick to Lato-Bol. Merriweather just doesn't look nice in PDF form,
+% not sure why as it looks very nice in Chrome.
+\newcommand{\runsubsection}[1]{\color{subheadings}\fontsize{12pt}{12pt}\lato{Bol} #1 \normalfont}
 
 \newcommand{\inlinemain}[1]{%
-\color{subheadings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}{\fontsize{11pt}{13pt}\selectfont #1} \normalfont}
+\color{subheadings}\raggedright{\fontsize{11pt}{13pt}\raleway{Medium} #1} \normalfont}
 
 \newcommand{\inlineextra}[1]{%
-\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}{\fontsize{10pt}{12pt}\selectfont #1} \normalfont}
+\color{headings}\raggedright{\fontsize{10pt}{12pt}\raleway{Medium} #1} \normalfont}
 
 \newcommand{\entryhead}[3]{%
-\runsubsection{#1}%
-\inlinemain{\ifthenelse{\equal{#2}{}}{}{| #2}}%
+\runsubsection{#1\ifthenelse{\equal{#2}{}}{}{,}}%
+\inlinemain{#2}%
 \inlineextra{#3\\}%
 \color{primary}}
 
