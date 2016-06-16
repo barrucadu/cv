@@ -296,7 +296,7 @@
 % \published{year}{title}{publisher}{authors}{venue}
 \newcommand{\@published}[5]{%
 \entryhead{#2}{}{}%
-By #4, #1. In \textit{#5}.%
+By #4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
 \sectionspace}
 
 % \employed{dates}{title}{organisation}{location}{description}

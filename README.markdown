@@ -87,8 +87,8 @@ it.
 \published{year}{title}{publisher}{authors}{venue}
 ```
 
-The `\published` entry is geared towards conference/workshop
-submissions in requiring a presentation venue.
+If the "venue" field is set, it and not the publisher is shown; if
+unset, the publisher is shown.
 
 ```tex
 \employed{dates}{title}{organisation}{location}{description}
