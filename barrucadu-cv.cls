@@ -216,17 +216,17 @@
 % postnominals.
 \newcommand*{\firstname}[1]{%
 \iftoggle{anonymous}%
-{\@realfirstname{Firstname}}%
+{\@realfirstname{Mary}}%
 {\@realfirstname{#1}}}
 
 \newcommand*{\familyname}[1]{%
 \iftoggle{anonymous}%
-{\@realfamilyname{Lastname}}%
+{\@realfamilyname{Sue}}%
 {\@realfamilyname{#1}}}
 
 \newcommand*{\name}[2]{%
 \iftoggle{anonymous}%
-{\@realname{Firstname}{Lastname}}%
+{\@realname{Mary}{Sue}}%
 {\@realname{#1}{#2}}}
 
 \newcommand*{\email}[1]{%
