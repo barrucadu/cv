@@ -28,11 +28,15 @@
 
 \newtoggle{anonymous}
 \newtoggle{moreanonymous}
+\newtoggle{lato}
+
 \togglefalse{anonymous}
 \togglefalse{moreanonymous}
+\togglefalse{lato}
 
 \DeclareOption{anonymous}{\toggletrue{anonymous}}
 \DeclareOption{moreanonymous}{\toggletrue{moreanonymous}\toggletrue{anonymous}}
+\DeclareOption{lato}{\toggletrue{lato}}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -104,15 +108,20 @@
 
 \newcommand{\fake}[1]{\leavevmode\hphantom{#1}}
 
+% Switch from Raleway to Lato if lato option is set.
+\newcommand{\@pnomfont}{\iftoggle{lato}{\lato{Hai}}{\raleway{ExtraLight}}}
+\newcommand{\@fnamefont}{\iftoggle{lato}{\lato{Hai}}{\raleway{ExtraLight}}}
+\newcommand{\@lnamefont}{\iftoggle{lato}{\lato{Lig}}{\raleway{Light}}}
+
 \newcommand{\makecvhead}{%
 \begin{center}%
-\fontsize{20pt}{30pt}\raleway{ExtraLight}\fake{\@postnom}\@prenom%
+\fontsize{20pt}{30pt}\@pnomfont\fake{\@postnom}\@prenom%
 \hspace{10pt}%
-\fontsize{40pt}{60pt}\raleway{ExtraLight}\@firstname%
+\fontsize{40pt}{60pt}\@fnamefont\@firstname%
 \hspace{10pt}%
-\raleway{Light}\@lastname%
+\@lnamefont\@lastname%
 \hspace{10pt}%
-\fontsize{20pt}{30pt}\raleway{ExtraLight}\@postnom\fake{\@prenom}%
+\fontsize{20pt}{30pt}\@pnomfont\@postnom\fake{\@prenom}%
 \end{center}}
 
 % All junk to make mocerncvfooti work.

@@ -35,6 +35,8 @@ all the personal details, except pre- and postnominals.
     - open source project names and URLs
     - personal project names and URLs
 
+- `lato`: Use Lato for the name font, rather than Raleway.
+
 ### Personal details
 
 ```tex
