@@ -24,11 +24,15 @@
 \RequirePackage{ifthen}
 \RequirePackage{etoolbox}
 
-\newtoggle{anonymous}
-\togglefalse{anonymous}
+% See the README for option documentation.
 
-% Hide contact details, change names and URLs in entries.
+\newtoggle{anonymous}
+\newtoggle{moreanonymous}
+\togglefalse{anonymous}
+\togglefalse{moreanonymous}
+
 \DeclareOption{anonymous}{\toggletrue{anonymous}}
+\DeclareOption{moreanonymous}{\toggletrue{moreanonymous}\toggletrue{anonymous}}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -208,7 +212,7 @@
     }
     {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
 
-% If anonymous, discard all personal information other than pre- and
+% If anonymous is on, discard all personal information other than pre- and
 % postnominals.
 \newcommand*{\firstname}[1]{%
 \iftoggle{anonymous}%
@@ -288,7 +292,7 @@ By #4, #1. In \textit{#5}.%
 \sectionspace}
 
 % \begin{educated}{institute} degrees \end{educated}
-\iftoggle{anonymous}
+\iftoggle{moreanonymous}
 {\newenvironment{educated}[1]{\runsubsection{Some Institute\\}}{\sectionspace}}
 {\newenvironment{educated}[1]{\runsubsection{#1\\}}{\sectionspace}}
 
@@ -311,24 +315,24 @@ By #4, #1. In \textit{#5}.%
 #4%
 \sectionspace}
 
-% If anonymous put in dummy values for identifying fields.
+% If moreanonymous put in dummy values for identifying fields.
 \newcommand{\published}[5]{%
-\iftoggle{anonymous}%
+\iftoggle{moreanonymous}%
 {\@published{#1}{Some Publication}{#3}{Some Authors}{#5}}%
 {\@published{#1}{#2}{#3}{#4}{#5}}}
 
 \newcommand{\employed}[5]{%
-\iftoggle{anonymous}%
+\iftoggle{moreanonymous}%
 {\@employed{#1}{#2}{Some Company}{#4}{#5}}%
 {\@employed{#1}{#2}{#3}{#4}{#5}}}
 
 \newcommand{\contribution}[5]{%
-\iftoggle{anonymous}%
+\iftoggle{moreanonymous}%
 {\@contribution{#1}{#2}{Some OSS Project}{\httplink{www.example.com}}{#5}}%
 {\@contribution{#1}{#2}{#3}{#4}{#5}}}
 
 \newcommand{\project}[4]{
-\iftoggle{anonymous}%
+\iftoggle{moreanonymous}%
 {\@project{Some Project}{\httplink{www.example.com}}{#3}{#4}}%
 {\@project{#1}{#2}{#3}{#4}}}
 

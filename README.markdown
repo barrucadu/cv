@@ -22,20 +22,18 @@ contains only one type of entry. Entries of the same kind look
 consistent, but there is some variation between entries of different
 types which may not look good if juxtaposed.
 
-### Anonymous mode
+### Class Options
 
-```tex
-\documentclass[a4paper, anonymous]{barrucadu-cv}
-```
+- `anonymous`: Useful for sharing on reddit. Substitutes placeholders for
+all the personal details, except pre- and postnominals.
 
-Useful for sharing on reddit. This substitutes placeholders for:
-
-- all the personal details (except pre- and postnominals)
-- educational institution names
-- publication titles and authors
-- employer names
-- open source project names and URLs
-- personal project names and URLs
+- `moreanonymous`: More anonymous than `anonymous`. Also substitutes
+  placeholders for:
+    - educational institution names
+    - publication titles and authors
+    - employer names
+    - open source project names and URLs
+    - personal project names and URLs
 
 ### Personal details
 
