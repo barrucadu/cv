@@ -37,6 +37,11 @@ all the personal details, except pre- and postnominals.
 
 - `lato`: Use Lato for the name font, rather than Raleway.
 
+- `textwidthline`: Draw the dividing lines between sections only as
+  wide as the text, not the full page.
+
+- `noline`: Don't draw dividing lines between sections.
+
 ### Personal details
 
 ```tex

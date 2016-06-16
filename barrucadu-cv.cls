@@ -29,14 +29,20 @@
 \newtoggle{anonymous}
 \newtoggle{moreanonymous}
 \newtoggle{lato}
+\newtoggle{textwidthline}
+\newtoggle{noline}
 
 \togglefalse{anonymous}
 \togglefalse{moreanonymous}
 \togglefalse{lato}
+\togglefalse{textwidthline}
+\togglefalse{noline}
 
 \DeclareOption{anonymous}{\toggletrue{anonymous}}
 \DeclareOption{moreanonymous}{\toggletrue{moreanonymous}\toggletrue{anonymous}}
 \DeclareOption{lato}{\toggletrue{lato}}
+\DeclareOption{textwidthline}{\toggletrue{textwidthline}}
+\DeclareOption{noline}{\toggletrue{noline}}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -182,9 +188,15 @@
 % and is a tad thicker.
 \newcommand{\headingstyle}{\color{headings}\fontsize{16pt}{24pt}\lato{Lig}\raggedright\uppercase}
 
+\newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
+
+\newcommand{\@titleline}{\iftoggle{textwidthline}%
+{\titlerule[0.5pt]}%
+{\titleline{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.5pt}}}}}
+
 \titleformat{\section}{%
 \sectionspace%
-\titleline{\noindent\makebox[\linewidth]{\color{rules}\rule{\paperwidth}{0.5pt}}}%
+\iftoggle{noline}{}{\color{rules}\@titleline}%
 \headingstyle}{}{0em}{}
 
 % Starred sections don't get the overline.
