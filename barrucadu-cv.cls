@@ -26,23 +26,16 @@
 
 % See the README for option documentation.
 
-\newtoggle{anonymous}
+\newcommand{\@newoption}[1]{\newtoggle{#1}\DeclareOption{#1}{\toggletrue{#1}}}
+
+\@newoption{anonymous}
+\@newoption{lato}
+\@newoption{textwidthline}
+\@newoption{noline}
+
+% \@newoption can't handle moreanonymous because it sets two flags.
 \newtoggle{moreanonymous}
-\newtoggle{lato}
-\newtoggle{textwidthline}
-\newtoggle{noline}
-
-\togglefalse{anonymous}
-\togglefalse{moreanonymous}
-\togglefalse{lato}
-\togglefalse{textwidthline}
-\togglefalse{noline}
-
-\DeclareOption{anonymous}{\toggletrue{anonymous}}
 \DeclareOption{moreanonymous}{\toggletrue{moreanonymous}\toggletrue{anonymous}}
-\DeclareOption{lato}{\toggletrue{lato}}
-\DeclareOption{textwidthline}{\toggletrue{textwidthline}}
-\DeclareOption{noline}{\toggletrue{noline}}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
