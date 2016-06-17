@@ -3,12 +3,12 @@ barrucadu/cv
 
 A **one-page** CV template in **XeTeX** with a focus for people in the
 computer science / tech industry. Based heavily on [Deedy-Resume][]
-and [moderncv][].
+and [moderncv][]. See the example.png file.
+
+This template aims to be a good, clean, base for any CV.
 
 [Deedy-Resume]: https://github.com/deedy/Deedy-Resume
 [moderncv]:     https://launchpad.net/moderncv
-
-This template aims to be a good, clean, base for any CV.
 
 Usage
 -----
