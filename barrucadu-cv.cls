@@ -159,7 +159,8 @@
 
 \AtBeginDocument{%
   \makecvhead%
-  \makecvfoot}
+  \makecvfoot%
+  \raggedright}
 
 \RequirePackage{fancyhdr}
 \fancypagestyle{plain}{
@@ -179,7 +180,7 @@
 % My website uses Raleway-ExtraLight here, but I think that looks too
 % thin in the PDF. Lato-Lig looks basically the same in this context
 % and is a tad thicker.
-\newcommand{\headingstyle}{\color{headings}\fontsize{16pt}{24pt}\lato{Lig}\raggedright\uppercase}
+\newcommand{\headingstyle}{\color{headings}\fontsize{16pt}{24pt}\lato{Lig}\uppercase}
 
 \newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
 
@@ -282,10 +283,10 @@
 \newcommand{\runsubsection}[1]{\color{subheadings}\fontsize{12pt}{12pt}\lato{Bol} #1 \normalfont}
 
 \newcommand{\inlinemain}[1]{%
-\color{subheadings}\raggedright{\fontsize{11pt}{13pt}\raleway{Medium} #1} \normalfont}
+\color{subheadings}\fontsize{11pt}{13pt}\raleway{Medium} #1 \normalfont}
 
 \newcommand{\inlineextra}[1]{%
-\color{headings}\raggedright{\fontsize{10pt}{12pt}\raleway{Medium} #1} \normalfont}
+\color{headings}\fontsize{10pt}{12pt}\raleway{Medium} #1 \normalfont}
 
 \newcommand{\entryhead}[3]{%
 \runsubsection{#1\ifthenelse{\equal{#2}{}}{}{,}}%
