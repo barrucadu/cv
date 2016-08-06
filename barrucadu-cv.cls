@@ -73,7 +73,7 @@
 % -----------------------------------------------------------------------------
 % -- Hyperlinks
 
-\RequirePackage{hyperref}
+\RequirePackage[pdfborder={0,0,0}]{hyperref}
 
 % \link[optional text]{link}
 \newcommand*{\link}[2][]{%
