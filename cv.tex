@@ -33,22 +33,32 @@
 
 \section{Experience}
 
-\employed{Oct 2015–May 2016}
-  {Postgraduate Teaching Assistant}
-  {University of York}
-  {York}
+\employed{May–Aug 2016}
+  {Software Engineering Intern}
+  {Pusher}
+  {London}
   {\begin{tightitemize}
-    \item Assisted with the teaching of first-year introductory
-      algorithms and data structures course.
-    \end{tightitemize}}
-
-\employed{Oct 2014–May 2015}
-  {Postgraduate Teaching Assistant}
-  {University of York}
-  {York}
-  {\begin{tightitemize}
-    \item Assisted with the teaching of first-year introductory
-      discrete mathematics course.
+    \item Contributed to the implementation of a distributed system
+      using \keyword{Go} and \keyword{Raft consensus}:
+      \begin{itemize}
+      \item Rewrote the storage subsystem, improving benchmark
+        performance by a factor of 30.
+      \item Fixed bugs and implemented missing functionality, bringing
+        error rate down from 80\% to 0\%.
+      \item Integrated with \keyword{Stagger}, an open-source,
+        in-house, metric reporting service.
+      \item Reduced maximum garbage collector pause time by a factor
+        of 200.
+        \item Implemented \keyword{m-of-n sharding}.
+      \end{itemize}
+    \item Implemented a tool for \keyword{fuzz testing} arbitrary Go
+      interfaces (\textbf{\githublink{pusher}{go-interface-fuzzer}}):
+      \begin{itemize}
+      \item Behaviour is compared against a reference implementation
+        and programmer-specified invariants.
+      \item Regression testing can be performed by using a prior
+        version as the ``reference'' implementation.
+      \end{itemize}
     \end{tightitemize}}
 
 \employed{Oct 2014–now}
