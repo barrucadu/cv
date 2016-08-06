@@ -308,15 +308,16 @@ By #4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
 
 % \begin{educated}{institute} degrees \end{educated}
 \iftoggle{moreanonymous}
-{\newenvironment{educated}[1]{\runsubsection{Some Institute\\}}{\sectionspace}}
-{\newenvironment{educated}[1]{\runsubsection{#1\\}}{\sectionspace}}
+{\newenvironment{educated}[1]{\runsubsection{Some Institute\\}}{}}
+{\newenvironment{educated}[1]{\runsubsection{#1\\}}{}}
 
 % \degree{dates}{qualification}{grade}{description}
 \newcommand{\degree}[4]{%
 \inlinemain{#2}%
 \inlineextra{#1\ifthenelse{\equal{#3}{}}{}{, #3}.\\}%
 \color{primary}%
-#4}
+#4%
+\sectionspace}
 
 % \contribution{dates}{title}{name}{link}{description}
 \newcommand{\@contribution}[5]{%
