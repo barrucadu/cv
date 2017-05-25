@@ -43,7 +43,7 @@
 
 \title{Curriculum Vitae}
 
-\RequirePackage[hmargin=2cm, vmargin=0.75cm]{geometry}
+\RequirePackage[vmargin=0.75cm]{geometry}
 \addtolength{\textheight}{-2cm}
 
 % -----------------------------------------------------------------------------
