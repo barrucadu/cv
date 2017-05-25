@@ -174,13 +174,13 @@
 
 \RequirePackage{titlesec}
 
-\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{0pt}{4pt}
 \newcommand{\sectionspace}{\vspace{8pt}}
 
 % My website uses Raleway-ExtraLight here, but I think that looks too
 % thin in the PDF. Lato-Lig looks basically the same in this context
 % and is a tad thicker.
-\newcommand{\headingstyle}{\color{headings}\fontsize{16pt}{24pt}\lato{Lig}\uppercase}
+\newcommand{\headingstyle}{\color{headings}\fontsize{11pt}{13pt}\lato{Lig}\uppercase}
 
 \newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
 
@@ -191,6 +191,7 @@
 \titleformat{\section}{%
 \sectionspace%
 \iftoggle{noline}{}{\color{rules}\@titleline}%
+\vspace{4pt}%
 \headingstyle}{}{0em}{}
 
 % Starred sections don't get the overline.
