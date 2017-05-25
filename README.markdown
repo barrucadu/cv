@@ -70,6 +70,14 @@ line drawn above it. The starred variant does not draw the line, which
 is useful for a section starting at top of a page with nothing before
 it.
 
+```tex
+\subsection{name}
+```
+
+Creates a heading suitable for containing multiple entries involving
+the same place (for example, multiple degrees at the same
+institute).
+
 ### Entries
 
 ```tex
@@ -80,18 +88,14 @@ If the "venue" field is set, it and not the publisher is shown; if
 unset, the publisher is shown.
 
 ```tex
-\employed{dates}{title}{organisation}{location}{description}
-\contribution{dates}{title}{project name}{link}{description}
-\project{title}{link}{very short summary}{description}
-
-\begin{educated}{institute name}
-  \degree{dates}{qualification}{grade}{description}
-\end{educated}
+\employed[organisation]{dates}{title}{location}{description}
+\contribution[name]{dates}{title}{link}{description}
+\project[name]{link}{very short summary}{description}
+\degree[institute]{dates}{qualification}{grade}{description}
 ```
 
-As it is common to receive multiple qualifications from the same
-institute, this is different to the rest of the entries. An
-environment is used to only typeset the institution name once.
+If the `[optional parameter]` is unset, you should use a `\subsection`
+above.
 
 ### Miscellaneous
 

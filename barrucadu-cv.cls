@@ -192,6 +192,9 @@
 % Starred sections don't get the overline.
 \titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
 
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titleformat{\subsection}{\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
+
 % -----------------------------------------------------------------------------
 % -- Personal details
 
@@ -238,9 +241,10 @@
 \color{headings}\fontsize{10pt}{12pt}\raleway{Medium} #1 \normalfont}
 
 \newcommand{\entryhead}[3]{%
-\runsubsection{#1\ifthenelse{\equal{#2}{}}{}{,}}%
+\ifthenelse{\equal{#1}{}}{}{\subsection{#1}}%
 \inlinemain{#2}%
-\inlineextra{#3\\}%
+\inlineextra{#3}%
+\ifthenelse{\equal{#2}{}}{}{\\}%
 \color{primary}}
 
 % \published{year}{title}{publisher}{authors}{venue}
@@ -249,31 +253,26 @@
 #4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
 \sectionspace}
 
-% \employed{dates}{title}{organisation}{location}{description}
-\newcommand{\employed}[5]{%
-\entryhead{#3}{#2}{#1, #4.}%
+% \employed[organisation]{dates}{title}{location}{description}
+\newcommand{\employed}[5][]{%
+\entryhead{#1}{#3}{#2, #4.}%
 #5%
 \sectionspace}
 
-% \begin{educated}{institute} degrees \end{educated}
-\newenvironment{educated}[1]{\runsubsection{#1\\}}{}
-
-% \degree{dates}{qualification}{grade}{description}
-\newcommand{\degree}[4]{%
-\inlinemain{#2}%
-\inlineextra{#1\ifthenelse{\equal{#3}{}}{}{, #3}.\\}%
-\color{primary}%
-#4%
-\sectionspace}
-
-% \contribution{dates}{title}{name}{link}{description}
-\newcommand{\contribution}[5]{%
-\entryhead{#3}{#2}{#1. \hfill #4}%
+% \degree[institute]{dates}{qualification}{grade}{description}
+\newcommand{\degree}[5][]{%
+\entryhead{#1}{#3}{#2\ifthenelse{\equal{#4}{}}{}{, #4}.}%
 #5%
 \sectionspace}
 
-% \project{title}{link}{summary}{description}
-\newcommand{\project}[4]{%
+% \contribution[name]{dates}{title}{link}{description}
+\newcommand{\contribution}[5][]{%
+\entryhead{#1}{#3}{#2. \hfill #4}%
+#5%
+\sectionspace}
+
+% \project[name]{link}{summary}{description}
+\newcommand{\project}[4][]{%
 \entryhead{#1}{#3}{\hfill #2}%
 #4%
 \sectionspace}
