@@ -24,17 +24,6 @@ types which may not look good if juxtaposed.
 
 ### Class Options
 
-- `anonymous`: Useful for sharing on reddit. Substitutes placeholders for
-all the personal details, except pre- and postnominals.
-
-- `moreanonymous`: More anonymous than `anonymous`. Also substitutes
-  placeholders for:
-    - educational institution names
-    - publication titles and authors
-    - employer names
-    - open source project names and URLs
-    - personal project names and URLs
-
 - `lato`: Use Lato for the name font, rather than Raleway.
 
 - `textwidthline`: Draw the dividing lines between sections only as
