@@ -90,7 +90,7 @@
 % \githublink[optional text]{user}{repo}
 \newcommand*{\githublink}[3][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{links}\href{https://github.com/#2/#3}{github: #2/#3}}}%
+    {{\color{links}\href{https://github.com/#2/#3}{github:~#2/#3}}}%
     {{\color{links}\href{https://github.com/#2/#3}{#1}}}}
 
 % \emaillink[optional text]{link}
