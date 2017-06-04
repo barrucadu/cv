@@ -61,7 +61,7 @@
 
 \definecolor{links}{rgb}{0.1,0.3,0.45}
 \definecolor{keyword}{HTML}{2b2b2b}
-\definecolor{primary}{HTML}{2b2b2b}
+\definecolor{primary}{HTML}{000000}
 \definecolor{headings}{HTML}{6A6A6A}
 \definecolor{subheadings}{HTML}{333333}
 \definecolor{rules}{HTML}{dddddd}
