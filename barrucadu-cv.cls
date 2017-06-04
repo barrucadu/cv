@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2017/05/25 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2017/06/04 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
