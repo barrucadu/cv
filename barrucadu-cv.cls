@@ -193,7 +193,7 @@
 \titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
 
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsection}{\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
+\titleformat{\subsection}{\color{subheadings}\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
@@ -228,11 +228,6 @@
 
 % -----------------------------------------------------------------------------
 % -- Entries
-
-% Another website divergence, rather than use Merriweather-Black just
-% stick to Lato-Bol. Merriweather just doesn't look nice in PDF form,
-% not sure why as it looks very nice in Chrome.
-\newcommand{\runsubsection}[1]{\color{subheadings}\fontsize{12pt}{12pt}\lato{Bol} #1 \normalfont}
 
 \newcommand{\inlinemain}[1]{%
 \color{subheadings}\fontsize{11pt}{13pt}\raleway{Medium} #1 \normalfont}
