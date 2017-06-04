@@ -60,6 +60,7 @@
 \RequirePackage[usenames,dvipsnames]{xcolor}
 
 \definecolor{links}{rgb}{0.1,0.3,0.45}
+\definecolor{keyword}{HTML}{2b2b2b}
 \definecolor{primary}{HTML}{2b2b2b}
 \definecolor{headings}{HTML}{6A6A6A}
 \definecolor{subheadings}{HTML}{333333}
@@ -276,7 +277,7 @@
 % -- Extras
 
 % Emphasise a keyword.
-\newcommand{\keyword}{\textbf}
+\newcommand{\keyword}[1]{\textbf{\color{keyword}#1}}
 
 % 'itemize', but with less spacing.
 \newenvironment{tightitemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
