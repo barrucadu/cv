@@ -3,6 +3,9 @@
 
 \documentclass[a4paper]{barrucadu-cv}
 
+\newcommand{\range}[2]{#1–#2}
+\newcommand{\orange}[1]{\range{#1}{now}}
+
 \firstname{Michael}
 \familyname{Walker}
 \address{York}{North Yorkshire}{England}
@@ -20,12 +23,12 @@
 
 \subsection{University of York}
 
-\degree{2014–now}
+\degree{\orange{2014}}
   {Computer Science (Ph.D)}
   {}
   {Expected to submit in March 2018.}
 
-\degree{2010–2014}
+\degree{\range{2010}{2014}}
   {Computer Systems and Software Engineering (M.Eng)}
   {achieved 2:1}
   {Received first-class honours for dissertation on the formal
@@ -33,7 +36,7 @@
 
 \section{Experience}
 
-\employed[Pusher]{May–Aug 2016}
+\employed[Pusher]{\range{May}{Aug}~2016}
   {Software Engineering Intern}
   {London}
   {\begin{tightitemize}
@@ -52,7 +55,7 @@
       (\textbf{\githublink{pusher}{go-interface-fuzzer}})
     \end{tightitemize}}
 
-\employed[University of York]{Oct 2014–now}
+\employed[University of York]{\orange{Oct 2014}}
   {Research Student}
   {York}
   {\begin{tightitemize}
@@ -65,7 +68,7 @@
       (\textbf{\githublink{barrucadu}{coco}}).
     \end{tightitemize}}
 
-\employed[CoreFiling]{Jul–Sep 2014}
+\employed[CoreFiling]{\range{Jul}{Sep}~2014}
   {Software Engineering Intern}
   {Oxford}
   {\begin{tightitemize}
@@ -87,7 +90,7 @@
     the event of unexpected termination, and can be used as a storage
     backend for the \keyword{hashicorp/raft} library.}
 
-\contribution[Arch Hurd]{2010–2015}
+\contribution[Arch Hurd]{\range{2010}{2015}}
   {Project Leader}
   {\httplink{www.archhurd.org}}
   {Managed a small, geographically diverse, development team porting
