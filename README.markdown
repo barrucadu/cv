@@ -89,13 +89,18 @@ unset, the publisher is shown.
 
 ```tex
 \employed[organisation]{dates}{title}{location}{description}
-\contribution[name]{dates}{title}{link}{description}
-\project[name]{link}{very short summary}{description}
 \degree[institute]{dates}{qualification}{grade}{description}
 ```
 
 If the `[optional parameter]` is unset, you should use a `\subsection`
 above.
+
+```tex
+\smallentry{name}{dates}{extra}{description}
+```
+
+Creates an entry where the name, dates, and extra are all in a single
+line. The extra is aligned to the right.
 
 ### Miscellaneous
 

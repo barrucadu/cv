@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2017/06/04 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2017/10/17 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
@@ -240,6 +240,10 @@
 \ifthenelse{\equal{#2}{}}{}{\\}%
 \color{primary}}
 
+\newcommand{\smallentryhead}[2]{%
+\subsection{#1\inlineextra{#2}}%
+\color{primary}}
+
 % \published{year}{title}{publisher}{authors}{venue}
 \newcommand{\published}[5]{%
 \entryhead{#2}{}{}%
@@ -258,15 +262,9 @@
 #5%
 \sectionspace}
 
-% \contribution[name]{dates}{title}{link}{description}
-\newcommand{\contribution}[5][]{%
-\entryhead{#1}{#3}{#2. \hfill #4}%
-#5%
-\sectionspace}
-
-% \project[name]{link}{summary}{description}
-\newcommand{\project}[4][]{%
-\entryhead{#1}{#3}{\hfill #2}%
+% \smallentry{name}{dates}{extra}{description}
+\newcommand{\smallentry}[4]{%
+\smallentryhead{#1}{#2 \hfill #3}%
 #4%
 \sectionspace}
 
