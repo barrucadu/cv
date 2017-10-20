@@ -89,12 +89,10 @@ If the "venue" field is set, it and not the publisher is shown; if
 unset, the publisher is shown.
 
 ```tex
-\employed[organisation]{dates}{title}{location}{description}
-\degree[institute]{dates}{qualification}{grade}{description}
+\entry[heading]{dates}{title}{description}
 ```
 
-If the `[optional parameter]` is unset, you should use a `\subsection`
-above.
+If the `[heading]` is unset, you should use a `\subsection` above.
 
 ```tex
 \smallentry{name}{dates}{extra}{description}

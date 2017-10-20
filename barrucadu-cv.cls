@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2017/10/17 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2017/10/20 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
@@ -250,16 +250,10 @@
 #4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
 \sectionspace}
 
-% \employed[organisation]{dates}{title}{location}{description}
-\newcommand{\employed}[5][]{%
-\entryhead{#1}{#3}{#2, #4.}%
-#5%
-\sectionspace}
-
-% \degree[institute]{dates}{qualification}{grade}{description}
-\newcommand{\degree}[5][]{%
-\entryhead{#1}{#3}{#2\ifthenelse{\equal{#4}{}}{}{, #4}.}%
-#5%
+% \entry[heading]{dates}{title}{description}
+\newcommand{\entry}[4][]{%
+\entryhead{#1}{#3}{#2}%
+#4%
 \sectionspace}
 
 % \smallentry{name}{dates}{extra}{description}
