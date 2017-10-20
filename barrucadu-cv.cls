@@ -252,13 +252,13 @@
 
 % \entry[heading]{dates}{title}{description}
 \newcommand{\entry}[4][]{%
-\entryhead{#1}{#3}{#2}%
+\entryhead{#1}{#3}{\hfill #2}%
 #4%
 \sectionspace}
 
 % \smallentry{name}{dates}{extra}{description}
 \newcommand{\smallentry}[4]{%
-\smallentryhead{#1}{#2 \hfill #3}%
+\smallentryhead{#1}{#3 \hfill #2}%
 #4%
 \sectionspace}
 
