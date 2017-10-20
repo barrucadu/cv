@@ -258,7 +258,8 @@
 
 % \smallentry{name}{dates}{extra}{description}
 \newcommand{\smallentry}[4]{%
-\smallentryhead{#1}{#3 \hfill #2}%
+\smallentryhead{#1}{\hfill #2}%
+\ifthenelse{\equal{#3}{}}{}{\textbf{\small #3}\\}%
 #4%
 \sectionspace}
 
