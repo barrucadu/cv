@@ -8,7 +8,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'cp cv.pdf /srv/http/www/cv.pdf'
+        sh 'cp cv.pdf /var/lib/containers/barrucadu/srv/http/www/cv.pdf'
       }
     }
   }
