@@ -1,8 +1,6 @@
 % You may use this as the basis for your own CV, but not for any other
 % purpose.
 
-\documentclass[a4paper]{barrucadu-cv}
-
 \newcommand{\range}[2]{#1–#2}
 \newcommand{\orange}[1]{\range{#1}{now}}
 
@@ -19,6 +17,7 @@
 
 \begin{document}
 
+\tagged{experience}{
 \section{Experience}
 
 \entry[Government Digital Service]{\orange{Apr~2018}}
@@ -38,6 +37,7 @@
       ShareLaTeX users.
     \end{tightitemize}}
 
+\tagged{experience-misc}{
 \entry[University of York]{\range{2014}{2017}}
   {Postgraduate Teaching Assistant}
   {\begin{tightitemize}
@@ -50,7 +50,9 @@
       \item Software Testing (masters)
       \end{itemize}
     \end{tightitemize}}
+}
 
+\tagged{experience-internship}{
 \entry[Overleaf]{\range{Jul}{Sep}~2017}
   {Software Engineering Intern}
   {\begin{tightitemize}
@@ -94,7 +96,10 @@
     \item Wrote a \keyword{JIRA} plug-in enabling the use of this
       markup in issue descriptions and comments.
     \end{tightitemize}}
+}
+}
 
+\tagged{education}{
 \section{Education}
 
 \subsection{University of York}
@@ -107,8 +112,10 @@
   {Computer Systems and Software Engineering (M.Eng)}
   {Received first-class honours for dissertation on the formal
     verification of stop-the-world garbage collectors.  Achieved 2:1.}
+}
 
-\section*{Publications}
+\tagged{publications}{
+\section{Publications}
 
 \published{2018}
   {Cheap Remarks about Concurrent Programs}
@@ -121,7 +128,9 @@
   {ACM SIGPLAN}
   {Michael Walker and Colin Runciman}
   {ACM SIGPLAN Symposium on Haskell}
+}
 
+\tagged{opensource}{
 \section{Open Source}
 
 \smallentry{D\'{e}j\`{a}~Fu}{\orange{2015}}{\githublink{barrucadu}{dejafu}}
@@ -143,5 +152,6 @@
 \smallentry{Uzbl}{2009}{\httplink{www.uzbl.org}}
   {A small web browser written in \keyword{C} following the UNIX
     philosophy of ``do one thing well''.}
+}
 
 \end{document}
