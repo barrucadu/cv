@@ -67,9 +67,8 @@ hyperlinked.
 ```
 
 Creates a new section with the title text capitalised and a dividing
-line drawn above it. The starred variant does not draw the line, which
-is useful for a section starting at top of a page with nothing before
-it.
+line drawn above it, which is omitted if the section is at the top of
+a page. The starred variant never draws the line.
 
 ```tex
 \subsection{name}

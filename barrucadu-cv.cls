@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2017/10/20 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2018/12/20 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
@@ -177,13 +177,18 @@
 
 \newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
 
-\newcommand{\@titleline}{\iftoggle{textwidthline}%
-{\titlerule[0.5pt]}%
-{\titleline{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.5pt}}}}}
+% magic from https://tex.stackexchange.com/a/61643
+\newcommand\disappearingrule{%
+  \par%
+  \vskip5pt%
+  \leaders\vrule width \textwidth\vskip0.5pt%
+  \nointerlineskip%
+  \vskip5pt%
+}
 
 \titleformat{\section}{%
 \sectionspace%
-\iftoggle{noline}{}{\color{rules}\@titleline}%
+\iftoggle{noline}{}{\color{rules}\disappearingrule}%
 \vspace{4pt}%
 \headingstyle}{}{0em}{}
 
