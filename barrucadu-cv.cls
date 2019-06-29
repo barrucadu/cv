@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2018/12/20 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2019/06/29 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
@@ -248,6 +248,12 @@
 \newcommand{\smallentryhead}[2]{%
 \subsection{#1\inlineextra{#2}}%
 \color{primary}}
+
+% \phdthesis{year}{title}{institute}
+\newcommand{\phdthesis}[3]{%
+\entryhead{#2}{}{}%
+Ph.D thesis. #3, #1.%
+\sectionspace}
 
 % \published{year}{title}{publisher}{authors}{venue}
 \newcommand{\published}[5]{%

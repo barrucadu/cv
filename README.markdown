@@ -81,6 +81,10 @@ institute).
 ### Entries
 
 ```tex
+\phdthesis{year}{title}{institute}
+```
+
+```tex
 \published{year}{title}{publisher}{authors}{venue}
 ```
 
