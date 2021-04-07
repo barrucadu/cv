@@ -1,15 +1,12 @@
 barrucadu/cv
 ============
 
-A **one-page** CV template in **XeTeX** with a focus for people in the
-computer science / tech industry. Based heavily on [Deedy-Resume][]
-and [moderncv][]. See [my compiled CV][compiled].
+My CV: https://www.barrucadu.co.uk/cv.pdf
 
-This template aims to be a good, clean, base for any CV.
+Based heavily on [Deedy-Resume][] and [moderncv][].
 
 [Deedy-Resume]: https://github.com/deedy/Deedy-Resume
-[moderncv]:     https://launchpad.net/moderncv
-[compiled]:     https://www.barrucadu.co.uk/cv.pdf
+[moderncv]: https://launchpad.net/moderncv
 
 Usage
 -----
@@ -135,6 +132,3 @@ Dependencies
 ------------
 
 Compiles with **XeTeX**.
-
-All required tex files and fonts should be present in extra-tex-files
-and fonts: if this isn't enough open an issue!
