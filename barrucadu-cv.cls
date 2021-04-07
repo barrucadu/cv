@@ -63,8 +63,8 @@
 % \httplink[optional text]{link}
 \newcommand*{\httplink}[2][]{%
   \ifthenelse{\equal{#1}{}}%
-    {{\color{links}\href{http://#2}{#2}}}%
-    {{\color{links}\href{http://#2}{#1}}}}
+    {{\color{links}\href{https://#2}{#2}}}%
+    {{\color{links}\href{https://#2}{#1}}}}
 
 % \githublink[optional text]{user}{repo}
 \newcommand*{\githublink}[3][]{%
