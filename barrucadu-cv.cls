@@ -40,7 +40,6 @@
 \setmainfont[Path=fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path=fonts/raleway/]{Raleway-ExtraLight}
 
-\NewDocumentCommand{\lato}{m}{\fontspec[Path=fonts/lato/]{Lato-#1}\selectfont}
 \NewDocumentCommand{\raleway}{m}{\fontspec[Path=fonts/raleway/]{Raleway-#1}\selectfont}
 
 \RequirePackage[usenames,dvipsnames]{xcolor}
@@ -121,10 +120,7 @@
 \titlespacing*{\section}{0pt}{0pt}{4pt}
 \newcommand{\sectionspace}{\vspace{8pt}}
 
-% My website uses Raleway-ExtraLight here, but I think that looks too
-% thin in the PDF. Lato-Lig looks basically the same in this context
-% and is a tad thicker.
-\newcommand{\headingstyle}{\fontsize{11pt}{13pt}\lato{Lig}\uppercase}
+\newcommand{\headingstyle}{\fontsize{11pt}{13pt}\raleway{Heavy}\addfontfeature{LetterSpace=10}\uppercase}
 
 \newcommand{\@divlinewidth}{\paperwidth}
 
@@ -147,7 +143,7 @@
 \titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
 
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsection}{\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
+\titleformat{\subsection}{\fontsize{16pt}{16pt}\raleway{Medium}}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
@@ -177,19 +173,15 @@
 \ifthenelse{\equal{#2}{}}{}{\\}%
 \color{primary}}
 
-\newcommand{\smallentryhead}[2]{%
-\subsection{#1\inlineextra{#2}}%
-\color{primary}}
-
 % \phdthesis{year}{title}{institute}
 \newcommand{\phdthesis}[3]{%
-\entryhead{#2}{}{}%
+\entryhead{}{#2}{}%
 Ph.D thesis. #3, #1.%
 \sectionspace}
 
 % \published{year}{title}{publisher}{authors}{venue}
 \newcommand{\published}[5]{%
-\entryhead{#2}{}{}%
+\entryhead{}{#2}{}%
 #4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
 \sectionspace}
 
@@ -201,7 +193,7 @@ Ph.D thesis. #3, #1.%
 
 % \smallentry{name}{dates}{extra}{description}
 \newcommand{\smallentry}[4]{%
-\smallentryhead{#1}{\hfill #2}%
+\entryhead{}{#1}{\hfill #2}%
 \ifthenelse{\equal{#3}{}}{}{\textbf{\small #3}\\}%
 #4%
 \sectionspace}
