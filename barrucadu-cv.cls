@@ -23,12 +23,6 @@
 
 % See the README for option documentation.
 
-\newcommand{\@newoption}[1]{\newtoggle{#1}\DeclareOption{#1}{\toggletrue{#1}}}
-
-\@newoption{lato}
-\@newoption{textwidthline}
-\@newoption{noline}
-
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -88,19 +82,12 @@
 % -----------------------------------------------------------------------------
 % -- Header and footer
 
-\newcommand{\fake}[1]{\leavevmode\hphantom{#1}}
-
-% Switch from Raleway to Lato if lato option is set.
-\newcommand{\@pnomfont}{\iftoggle{lato}{\lato{Hai}}{\raleway{ExtraLight}}}
-\newcommand{\@fnamefont}{\iftoggle{lato}{\lato{Hai}}{\raleway{ExtraLight}}}
-\newcommand{\@lnamefont}{\iftoggle{lato}{\lato{Lig}}{\raleway{Light}}}
-
 \newcommand{\makecvhead}{%
   \begin{center}%
     \fontsize{40pt}{60pt}%
-    \@fnamefont\@firstname%
+    \raleway{ExtraLight}\@firstname%
     \hspace{10pt}%
-    \@lnamefont\@lastname%
+    \raleway{Light}\@lastname%
   \end{center}}
 
 \newcommand*{\makecvfoot}{%
@@ -139,7 +126,7 @@
 % and is a tad thicker.
 \newcommand{\headingstyle}{\fontsize{11pt}{13pt}\lato{Lig}\uppercase}
 
-\newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
+\newcommand{\@divlinewidth}{\paperwidth}
 
 % magic from https://tex.stackexchange.com/a/61643
 \newcommand\disappearingrule{%
@@ -152,7 +139,7 @@
 
 \titleformat{\section}{%
 \sectionspace%
-\iftoggle{noline}{}{\color{rules}\disappearingrule\color{primary}}%
+\color{rules}\disappearingrule\color{primary}%
 \vspace{4pt}%
 \headingstyle}{}{0em}{}
 

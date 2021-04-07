@@ -20,15 +20,6 @@ contains only one type of entry. Entries of the same kind look
 consistent, but there is some variation between entries of different
 types which may not look good if juxtaposed.
 
-### Class Options
-
-- `lato`: Use Lato for the name font, rather than Raleway.
-
-- `textwidthline`: Draw the dividing lines between sections only as
-  wide as the text, not the full page.
-
-- `noline`: Don't draw dividing lines between sections.
-
 ### Personal details
 
 Shown in the header of the first page:
