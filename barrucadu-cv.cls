@@ -226,4 +226,5 @@ Ph.D thesis. #3, #1.%
 \newcommand{\keyword}[1]{\textbf{\color{keyword}#1}}
 
 % 'itemize', but with less spacing.
-\newenvironment{tightitemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
+\RequirePackage{enumitem}
+\newenvironment{tightitemize}{\vspace{-\topsep}\begin{itemize}[leftmargin=*]\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
