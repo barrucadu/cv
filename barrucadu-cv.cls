@@ -78,6 +78,10 @@
     {{\color{links}\href{mailto:#2}{#2}}}%
     {{\color{links}\href{mailto:#2}{#1}}}}
 
+% \doilink{number}
+\newcommand*{\doilink}[2][]{%
+  {doi:~\color{links}\href{https://doi.org/#1}{#2}}}
+
 % -----------------------------------------------------------------------------
 % -- Header and footer
 
@@ -179,10 +183,11 @@
 Ph.D thesis. #3, #1.%
 \sectionspace}
 
-% \published{year}{title}{publisher}{authors}{venue}
-\newcommand{\published}[5]{%
-\entryhead{}{#2}{}%
-#4, #1. \ifthenelse{\equal{#5}{}}{\textit{#3}}{In \textit{#5}}.%
+% \published[doi]{year}{title}{publisher}{authors}{venue}
+\newcommand{\published}[6][]{%
+\entryhead{}{#3}{}%
+\ifthenelse{\equal{#1}{}}{}{\textbf{\doilink{#1}}\\}%
+#5, #2. \ifthenelse{\equal{#6}{}}{\textit{#4}}{In \textit{#6}}.%
 \sectionspace}
 
 % \entry[heading]{dates}{title}{description}

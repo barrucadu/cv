@@ -68,7 +68,7 @@ institute).
 ```
 
 ```tex
-\published{year}{title}{publisher}{authors}{venue}
+\published[doi]{year}{title}{publisher}{authors}{venue}
 ```
 
 If the "venue" field is set, it and not the publisher is shown; if
