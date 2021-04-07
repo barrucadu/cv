@@ -54,8 +54,6 @@
 \definecolor{links}{rgb}{0.1,0.3,0.45}
 \definecolor{keyword}{HTML}{2b2b2b}
 \definecolor{primary}{HTML}{000000}
-\definecolor{headings}{HTML}{6A6A6A}
-\definecolor{subheadings}{HTML}{333333}
 \definecolor{rules}{HTML}{dddddd}
 
 % -----------------------------------------------------------------------------
@@ -139,7 +137,7 @@
 % My website uses Raleway-ExtraLight here, but I think that looks too
 % thin in the PDF. Lato-Lig looks basically the same in this context
 % and is a tad thicker.
-\newcommand{\headingstyle}{\color{headings}\fontsize{11pt}{13pt}\lato{Lig}\uppercase}
+\newcommand{\headingstyle}{\fontsize{11pt}{13pt}\lato{Lig}\uppercase}
 
 \newcommand{\@divlinewidth}{\iftoggle{textwidthline}{\textwidth}{\paperwidth}}
 
@@ -154,7 +152,7 @@
 
 \titleformat{\section}{%
 \sectionspace%
-\iftoggle{noline}{}{\color{rules}\disappearingrule}%
+\iftoggle{noline}{}{\color{rules}\disappearingrule\color{primary}}%
 \vspace{4pt}%
 \headingstyle}{}{0em}{}
 
@@ -162,7 +160,7 @@
 \titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
 
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsection}{\color{subheadings}\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
+\titleformat{\subsection}{\fontsize{12pt}{12pt}\lato{Bol}}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
@@ -180,10 +178,10 @@
 % -- Entries
 
 \newcommand{\inlinemain}[1]{%
-\color{subheadings}\fontsize{11pt}{13pt}\raleway{Medium} #1 \normalfont}
+\fontsize{11pt}{13pt}\raleway{Medium} #1 \normalfont}
 
 \newcommand{\inlineextra}[1]{%
-\color{headings}\fontsize{10pt}{12pt}\raleway{Medium} #1 \normalfont}
+\fontsize{10pt}{12pt}\raleway{Medium} #1 \normalfont}
 
 \newcommand{\entryhead}[3]{%
 \ifthenelse{\equal{#1}{}}{}{\subsection{#1}}%
