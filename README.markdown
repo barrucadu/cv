@@ -31,30 +31,25 @@ types which may not look good if juxtaposed.
 
 ### Personal details
 
+Shown in the header of the first page:
+
 ```tex
-\prenominals{prenominals}
-\postnominals{postnominals}
-\firstname{firstname}
-\familyname{familyname}
-\name{firstname}{familyname}
+\firstname{first name}
+\familyname{family name}
 ```
 
-The header of the first page contains the name, centred, with the pre-
-and postnominals on either side. The pre- and postnominals do not
-count towards the centering.
+Shown in the footer of every page:
 
 ```tex
+\address{city}{country}
 \email{email address}
 \homepage{website url}
-\phone[fixed OR mobile]{number}
-\extrainfo{any extra information}
-\address{city}{county}{country}
-\social[linkedin OR github OR twitter]{username}
+\linkedin{linkedin username}
+\twitter{twitter username}
+\github{github username}
 ```
 
-The rest of the personal details make up the footer, which appears on
-every page. The email address, homepage, and social media accounts are
-hyperlinked.
+All are required.
 
 ### Sectioning
 

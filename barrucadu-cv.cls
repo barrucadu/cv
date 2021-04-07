@@ -49,11 +49,6 @@
 \NewDocumentCommand{\lato}{m}{\fontspec[Path=fonts/lato/]{Lato-#1}\selectfont}
 \NewDocumentCommand{\raleway}{m}{\fontspec[Path=fonts/raleway/]{Raleway-#1}\selectfont}
 
-\newfontfamily{\FA}[Path=./fonts/fontawesome/]{FontAwesome}
-\newcommand*{\faicon}[1]{{\csname faicon@#1\endcsname}}
-\input{extra-tex-files/fontawesomesymbols-generic.tex}
-\input{extra-tex-files/fontawesomesymbols-xeluatex.tex}
-
 \RequirePackage[usenames,dvipsnames]{xcolor}
 
 \definecolor{links}{rgb}{0.1,0.3,0.45}
@@ -95,9 +90,6 @@
 % -----------------------------------------------------------------------------
 % -- Header and footer
 
-\def\@prenom{}
-\def\@postnom{}
-
 \newcommand{\fake}[1]{\leavevmode\hphantom{#1}}
 
 % Switch from Raleway to Lato if lato option is set.
@@ -106,49 +98,23 @@
 \newcommand{\@lnamefont}{\iftoggle{lato}{\lato{Lig}}{\raleway{Light}}}
 
 \newcommand{\makecvhead}{%
-\begin{center}%
-\fontsize{20pt}{30pt}\@pnomfont\fake{\@postnom}\@prenom%
-\hspace{10pt}%
-\fontsize{40pt}{60pt}\@fnamefont\@firstname%
-\hspace{10pt}%
-\@lnamefont\@lastname%
-\hspace{10pt}%
-\fontsize{20pt}{30pt}\@pnomfont\@postnom\fake{\@prenom}%
-\end{center}}
+  \begin{center}%
+    \fontsize{40pt}{60pt}%
+    \@fnamefont\@firstname%
+    \hspace{10pt}%
+    \@lnamefont\@lastname%
+  \end{center}}
 
-% All junk to make mocerncvfooti work.
-\newcommand{\makecvfoot}{}
-\newcommand*{\addressfont}{}
-\newcommand*{\recomputefootlengths}{}
-\newcommand*{\recomputecvfootlengths}{}
-\newcommand*{\recomputeletterfootlengths}{}
-\newcommand*{\makeletterfoot}{}
-\newcommand*{\@initializelength}[1]{%
-  \ifdefined#1
-  \else%
-    \newlength{#1}\fi%
-  \setlength{#1}{0pt}}
-\newcommand*{\@initializebox}[1]{%
-  \ifdefined#1
-    \savebox{#1}{}%
-  \else%
-    \newsavebox{#1}\fi}
-\newcommand*{\@initializeif}[1]{\newif#1}
-\definecolor{color0}{rgb}{0,0,0}
-\definecolor{color1}{rgb}{0,0,0}
-\definecolor{color2}{rgb}{0,0,0}
-\definecolor{color3}{rgb}{0,0,0}
-\newcommand*{\addresssymbol}       {}
-\newcommand*{\mobilephonesymbol}   {}
-\newcommand*{\fixedphonesymbol}    {}
-\newcommand*{\faxphonesymbol}      {}
-\newcommand*{\emailsymbol}         {}
-\newcommand*{\homepagesymbol}      {}
-\newcommand*{\linkedinsocialsymbol}{}
-\newcommand*{\twittersocialsymbol} {}
-\newcommand*{\githubsocialsymbol}  {}
-\RequirePackage{moderncviconsawesome}
-\RequirePackage{moderncvfooti}
+\newcommand*{\makecvfoot}{%
+  \fancypagestyle{plain}{%
+    \fancyfoot[c]{%
+      \parbox[b]{\textwidth}{%
+        \centering%
+        \vspace{\baselineskip}%
+        \@addresscity~---~\@addresscountry\\
+        \emaillink{\@email} ~\textbullet~ \httplink{\@homepage}\\
+        github:~\httplink[\@github]{https://github.com/\@github} ~\textbullet~ linkedin:~\httplink[\@linkedin]{https://www.linkedin.com/in/\@linkedin} ~\textbullet~ twitter:~\httplink[\@twitter]{https://twitter.com/\@twitter}}}}
+  \pagestyle{plain}}
 
 \AtBeginDocument{%
   \makecvhead%
@@ -201,33 +167,14 @@
 % -----------------------------------------------------------------------------
 % -- Personal details
 
-% Note: these must define the same things as moderncv so that
-% moderncvfooti works.
-
-\RequirePackage{moderncvcollection}
-
-\collectionnew{phones}
-\collectionnew{socials}
-
-\newcommand*{\prenominals}[1]{\def\@prenom{#1}}
-\newcommand*{\postnominals}[1]{\def\@postnom{#1}}
-
 \newcommand*{\firstname}[1]{\def\@firstname{#1}}
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
-\newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
+\newcommand*{\address}[2]{\def\@addresscity{#1}\def\@addresscountry{#2}}
 \newcommand*{\email}[1]{\def\@email{#1}}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
-\newcommand*{\phone}[2][fixed]{\collectionadd[#1]{phones}{#2}}
-\newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
-\NewDocumentCommand{\address}{mG{}G{}}{\def\@addressstreet{#1}\def\@addresscity{#2}\def\@addresscountry{#3}}
-\NewDocumentCommand{\social}{O{}O{}m}{%
-  \ifthenelse{\equal{#2}{}}%
-    {%
-      \ifthenelse{\equal{#1}{linkedin}}{\collectionadd[linkedin]{socials}{\protect\httplink[#3]{www.linkedin.com/in/#3}}}{}%
-      \ifthenelse{\equal{#1}{twitter}} {\collectionadd[twitter]{socials} {\protect\httplink[#3]{www.twitter.com/#3}}}    {}%
-      \ifthenelse{\equal{#1}{github}}  {\collectionadd[github]{socials}  {\protect\httplink[#3]{www.github.com/#3}}}     {}%
-    }
-    {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
+\newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
+\newcommand*{\twitter}[1]{\def\@twitter{#1}}
+\newcommand*{\github}[1]{\def\@github{#1}}
 
 % -----------------------------------------------------------------------------
 % -- Entries
