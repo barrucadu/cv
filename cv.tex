@@ -22,9 +22,13 @@
   \begin{tightitemize}
   \item Tech lead on a small multidisciplinary \keyword{agile} team
     doing discovery work into GOV.UK Accounts and Personalisation:
-    lots of \keyword{OAuth} and \keyword{OpenID Connect}, with
-    \keyword{Ruby} and \keyword{Rails 6}, using \keyword{continuous
-      integration} and \keyword{continuous deployment}.
+
+    \begin{itemize}
+    \item Worked with product and delivery managers to prioritise and delegate work.
+    \item Implemented authentication and authorisation with \keyword{OAuth} / \keyword{OpenID Connect}.
+    \item Established good practices like \keyword{continuous deployment} and \keyword{service level objectives}.
+    \item Proposed and built consensus for large changes to the GOV.UK stack.
+    \end{itemize}
 
   \item Prototyped and then productionised a machine learning pipeline
     for search result ranking using \keyword{Amazon SageMaker}.
@@ -33,25 +37,25 @@
     \keyword{Elasticsearch 6}.
 
   \item Worked with performance analysts to plan and implement
-    \keyword{A/B testing}.
+    \keyword{A/B tests}.
 
-  \item Engaged with non-technical stakeholders to communicate
-    technical considerations.
+  \item Worked with non-technical stakeholders to explain and resolve
+    technical constraints.
 
-  \item I also have line management duties.
+  \item Line managed a mid-level developer.
   \end{tightitemize}
 \end{cventry}
 
 \begin{cventry}{\range{Apr~2018}{Jun~2019}}{Developer}
   \begin{tightitemize}
-  \item Various improvements to the GOV.UK stack, both performance and
-    technical debt.  Mostly \keyword{Ruby} and \keyword{Rails 5} /
-    \keyword{Sinatra}, some \keyword{Python 2}, various types of
-    database (e.g. \keyword{PostgreSQL} and \keyword{MySQL}).  All
-    running on \keyword{Linux}.
+  \item Made various improvements to the GOV.UK stack: for
+    performance, technical debt, and architecture debt.  Mostly
+    \keyword{Ruby} and \keyword{Rails} or \keyword{Sinatra}, some
+    \keyword{Python}, various types of database
+    (e.g. \keyword{PostgreSQL} and \keyword{MySQL}).  All running on
+    \keyword{Linux}.
 
-  \item Lead initial experiments into load-testing with
-    \keyword{Gatling}.
+  \item Lead initial experiments into \keyword{load testing}.
 
   \item Planned and implemented an upgrade from \keyword{Elasticsearch
     2} to \keyword{Elasticsearch 5}.
@@ -68,10 +72,8 @@
 
 \begin{cventry}{\range{Jan}{Mar}~2018}{Software Engineer (Part Time)}
   \begin{tightitemize}
-  \item Maintained the legacy Overleaf \keyword{Rails 5} monolith.
-
-  \item Maintained the legacy Overleaf git bridge, a \keyword{Java 8}
-    / \keyword{JGit} application.
+  \item Maintained legacy \keyword{Rails} and \keyword{Java} /
+    \keyword{JGit} services during the merger with ShareLaTeX.
   \end{tightitemize}
 \end{cventry}
 
@@ -85,9 +87,6 @@
 
   \item Designed and implemented a distributed message bus using
     \keyword{Node} and \keyword{Redis}.
-
-  \item Analysed the Overleaf and ShareLaTeX user and subscription
-    data to help inform the business model of the post-merger company.
   \end{tightitemize}
 \end{cventry}
 
@@ -95,17 +94,17 @@
 
 \begin{cventry}{\range{May}{Aug}~2016}{Software Engineering Intern}
   \begin{tightitemize}
-  \item Contributed to the implementation of a distributed system
-    using \keyword{Go} and \keyword{Raft consensus}:
+  \item Contributed to the productionisation of a prototype
+    distributed message bus using \keyword{Go} and \keyword{Raft
+      consensus}:
 
     \begin{itemize}
-    \item Rewrote the storage subsystem, improving benchmark
-      performance by a factor of 30.
-    \item Integrated with \keyword{Stagger}, an open-source, in-house,
-      metric reporting service.
-    \item Reduced maximum garbage collector pause time by a factor of
-      200.
-    \item Implemented \keyword{m-of-n sharding}.
+    \item Used profiling and algorithmic analysis to implement a new
+      storage subsystem.
+    \item Integrated with an in-house metric reporting service.
+    \item Used profiling to reduce maximum garbage collector pause
+      time by a factor of 200.
+    \item Implemented m-of-n sharding.
     \end{itemize}
 
   \item Implemented a tool for \keyword{fuzz testing} Go interfaces.
@@ -116,14 +115,8 @@
 
 \begin{cventry}{\range{Jul}{Sep}~2014}{Software Engineering Intern}
   \begin{tightitemize}
-  \item Refactored an extensively used in-house wiki program, fixing
+  \item Refactored a \keyword{Java} in-house wiki program, fixing
     numerous long-standing bugs.
-
-  \item Built a parser/renderer for a Creole-like markup language
-    using \keyword{ANTLR} in \keyword{Java}.
-
-  \item Wrote a \keyword{JIRA} plug-in enabling the use of this markup
-    in issue descriptions and comments.
   \end{tightitemize}
 \end{cventry}
 
@@ -131,15 +124,17 @@
 
 \subsection{University of York}
 
-\begin{cventry}{\range{2014}{2019}}{Computer Science (Ph.D)}
-  Thesis title: ``Revealing Behaviours of Concurrent Functional
-  Programs by Systematic Testing''.  Supervised by Colin Runciman, and
-  examined by Simon Peyton Jones and Ana Cavalcanti.
+\begin{cventry}{\range{2014}{2019}}{Ph.D in Computer Science}
+  My thesis ``Revealing Behaviours of Concurrent Functional Programs
+  by Systematic Testing'' examined the deterministic testing of
+  concurrent programs with shared memory and message passing.
+  Supervised by Colin Runciman, and examined by Simon Peyton Jones and
+  Ana Cavalcanti.
 \end{cventry}
 
-\begin{cventry}{\range{2010}{2014}}{Computer Systems and Software Engineering (M.Eng)}
-  Received first-class honours for dissertation on the formal
-  verification of stop-the-world garbage collectors.  Achieved 2:1.
+\begin{cventry}{\range{2010}{2014}}{M.Eng in Computer Systems and Software Engineering}
+  My dissertation on the formal verification of stop-the-world garbage
+  collectors received first-class honours.  Overall, I achieved a 2:1.
 \end{cventry}
 
 \section{Publications}
@@ -162,11 +157,13 @@
   {Michael Walker and Colin Runciman}
   {ACM SIGPLAN Symposium on Haskell}
 
+\textit{PDFs and BibTeX entries are available on \httplink[my website]{www.barrucadu.co.uk}.}
+
 \section{Open Source}
 
 \begin{cventry}{\orange{2015}}{D\'{e}j\`{a}~Fu}
-  A library for testing concurrent \keyword{Haskell} programs. Has
-  some commercial users.
+  A library for testing concurrent \keyword{Haskell} programs,
+  developed as part of my Ph.D thesis. It has had some commercial users.
 
   \textbf{\small\githublink{barrucadu}{dejafu}}
 \end{cventry}
