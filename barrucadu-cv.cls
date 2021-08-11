@@ -13,7 +13,7 @@
 % limitations under the License.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{barrucadu-cv}[2019/06/29 barrucadu's cv class]
+\ProvidesClass{barrucadu-cv}[2021/08/11 barrucadu's cv class]
 
 % -----------------------------------------------------------------------------
 % -- Document set-up
@@ -37,9 +37,47 @@
 
 \RequirePackage{fontspec}
 
-\setmainfont[Path=fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
+\newfontfamily\nameFont{Century Supra A Caps}[
+  Path        = ../fonts/mb_type_library/otf/Century Supra A Caps/ ,
+  Extension   = .otf ,
+  UprightFont = Century Supra A Caps Regular,
+]
 
-\NewDocumentCommand{\raleway}{m}{\fontspec[Path=fonts/raleway/]{Raleway-#1}\selectfont}
+\setmainfont{Valkyrie A}[
+  Path           = ../fonts/mb_type_library/otf/Valkyrie A/ ,
+  Extension      = .otf ,
+  UprightFont    = Valkyrie A Regular ,
+  BoldFont       = Valkyrie A Bold ,
+  ItalicFont     = Valkyrie A Italic ,
+  BoldItalicFont = Valkyrie A Bold Italic ,
+  Numbers        = OldStyle ,
+]
+
+\newfontfamily\sectionHeadingFont{Heliotrope 8 Caps (Uppercase)}[
+  Path        = ../fonts/mb_type_library/otf/Heliotrope 8/ ,
+  Extension   = .otf ,
+  UprightFont = Heliotrope 8 Italic ,
+  LetterSpace = 4 ,
+]
+
+\newfontfamily\subsectionHeadingFont{Heliotrope 8 Caps}[
+  Path        = ../fonts/mb_type_library/otf/Heliotrope 8 Caps/ ,
+  Extension   = .otf ,
+  UprightFont = Heliotrope 8 Caps Regular ,
+]
+
+\newfontfamily\entryHeadingFont{Heliotrope 6}[
+  Path        = ../fonts/mb_type_library/otf/Heliotrope 6/ ,
+  Extension   = .otf ,
+  UprightFont = Heliotrope 6 Regular,
+]
+
+\newfontfamily\entryDateFont{Valkyrie A}[
+  Path        = ../fonts/mb_type_library/otf/Valkyrie A/ ,
+  Extension   = .otf ,
+  UprightFont = Valkyrie A Regular ,
+  Numbers     = OldStyle ,
+]
 
 \RequirePackage[usenames,dvipsnames]{xcolor}
 
@@ -86,10 +124,10 @@
 
 \newcommand{\makecvhead}{%
   \begin{center}%
-    \fontsize{40pt}{60pt}%
-    \raleway{ExtraLight}\@firstname%
+    \fontsize{40pt}{60pt}\nameFont%
+    \@firstname%
     \hspace{10pt}%
-    \raleway{Light}\@lastname%
+    \@lastname%
   \end{center}}
 
 \newcommand*{\makecvfoot}{%
@@ -120,33 +158,10 @@
 
 \RequirePackage{titlesec}
 
-\titlespacing*{\section}{0pt}{0pt}{4pt}
-\newcommand{\sectionspace}{\vspace{8pt}}
+\titleformat{\section}{\large\sectionHeadingFont}{}{0em}{}[{\color{rules}\titlerule}]
 
-\newcommand{\headingstyle}{\fontsize{11pt}{13pt}\raleway{Heavy}\addfontfeature{LetterSpace=10}\uppercase}
-
-\newcommand{\@divlinewidth}{\paperwidth}
-
-% magic from https://tex.stackexchange.com/a/61643
-\newcommand\disappearingrule{%
-  \par%
-  \vskip5pt%
-  \leaders\vrule width \textwidth\vskip0.5pt%
-  \nointerlineskip%
-  \vskip5pt%
-}
-
-\titleformat{\section}{%
-\sectionspace%
-\color{rules}\disappearingrule\color{primary}%
-\vspace{4pt}%
-\headingstyle}{}{0em}{}
-
-% Starred sections don't get the overline.
-\titleformat{name=\section,numberless}{\sectionspace\headingstyle}{}{0em}{}
-
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsection}{\fontsize{16pt}{16pt}\raleway{Medium}}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}
+\titleformat{\subsection}{\large\subsectionHeadingFont}{}{0em}{}
 
 % -----------------------------------------------------------------------------
 % -- Personal details
@@ -163,44 +178,27 @@
 % -----------------------------------------------------------------------------
 % -- Entries
 
-\newcommand{\inlinemain}[1]{%
-\fontsize{11pt}{13pt}\raleway{Medium} #1 \normalfont}
+\newcommand{\entryspacing}{\vspace{8pt}}
 
-\newcommand{\inlineextra}[1]{%
-\fontsize{10pt}{12pt}\raleway{Medium} #1 \normalfont}
+\newcommand{\entryhead}[2]{%
+\addcontentsline{toc}{subsubsection}{#1}%
+{\fontsize{11pt}{13pt}\entryHeadingFont #1} \hfill {\fontsize{10pt}{12pt}\entryDateFont #2}\\}
 
-\newcommand{\entryhead}[3]{%
-\ifthenelse{\equal{#1}{}}{}{\subsection{#1}}%
-\inlinemain{#2}%
-\inlineextra{#3}%
-\ifthenelse{\equal{#2}{}}{}{\\}%
-\color{primary}}
+% \begin{entry}{dates}{title}
+\newenvironment{cventry}[2]{\entryhead{#2}{#1}}{\entryspacing}
 
 % \phdthesis{year}{title}{institute}
 \newcommand{\phdthesis}[3]{%
-\entryhead{}{#2}{}%
-Ph.D thesis. #3, #1.%
-\sectionspace}
+\begin{cventry}{}{#2}
+  Ph.D thesis. #3, #1.
+\end{cventry}}
 
 % \published[doi]{year}{title}{publisher}{authors}{venue}
 \newcommand{\published}[6][]{%
-\entryhead{}{#3}{}%
-\ifthenelse{\equal{#1}{}}{}{\textbf{\doilink{#1}}\\}%
-#5, #2. \ifthenelse{\equal{#6}{}}{\textit{#4}}{In \textit{#6}}.%
-\sectionspace}
-
-% \entry[heading]{dates}{title}{description}
-\newcommand{\entry}[4][]{%
-\entryhead{#1}{#3}{\hfill #2}%
-#4%
-\sectionspace}
-
-% \smallentry{name}{dates}{extra}{description}
-\newcommand{\smallentry}[4]{%
-\entryhead{}{#1}{\hfill #2}%
-\ifthenelse{\equal{#3}{}}{}{\textbf{\small #3}\\}%
-#4%
-\sectionspace}
+\begin{cventry}{}{#3}
+  #5, #2. \ifthenelse{\equal{#6}{}}{\textit{#4}}{In \textit{#6}}.
+  \ifthenelse{\equal{#1}{}}{}{\par\textbf{\small\doilink{#1}}\\}
+\end{cventry}}
 
 % -----------------------------------------------------------------------------
 % -- Extras

@@ -5,6 +5,12 @@ My CV: https://www.barrucadu.co.uk/cv.pdf
 
 Based heavily on [Deedy-Resume][] and [moderncv][].
 
+**This CV uses non-free fonts!**
+
+You likely won't have them and, if you do, you won't have them stored
+at the same paths as me.  So if you want to use this as a base for
+your own CV, you'll need to change the fonts in `barrucadu-cv.cls`.
+
 [Deedy-Resume]: https://github.com/deedy/Deedy-Resume
 [moderncv]: https://launchpad.net/moderncv
 
@@ -64,6 +70,15 @@ institute).
 ### Entries
 
 ```tex
+\begin{cventry}{dates}{title}
+  description
+\end{cventry}
+```
+
+All entries are defined in terms of the `cventry` environment.  Here
+are some special cases:
+
+```tex
 \phdthesis{year}{title}{institute}
 ```
 
@@ -73,19 +88,6 @@ institute).
 
 If the "venue" field is set, it and not the publisher is shown; if
 unset, the publisher is shown.
-
-```tex
-\entry[heading]{dates}{title}{description}
-```
-
-If the `[heading]` is unset, you should use a `\subsection` above.
-
-```tex
-\smallentry{name}{dates}{extra}{description}
-```
-
-Creates an entry where the name, dates, and extra are all in a single
-line. The extra is aligned to the right.
 
 ### Miscellaneous
 
