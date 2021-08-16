@@ -180,8 +180,10 @@
 
 \newcommand{\entryspacing}{\vspace{8pt}}
 
+\def\entryheadinglevel{subsubsection}
+
 \newcommand{\entryhead}[2]{%
-\addcontentsline{toc}{subsubsection}{#1}%
+\addcontentsline{toc}{\entryheadinglevel}{#1}%
 {\fontsize{11pt}{13pt}\entryHeadingFont #1} \hfill {\fontsize{10pt}{12pt}\entryDateFont #2}\\}
 
 % \begin{entry}{dates}{title}
