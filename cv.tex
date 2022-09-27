@@ -19,10 +19,15 @@
 \subsection{GoCardless}
 \begin{cventry}{\orange{Mar~2022}}{Software Development Engineer}
   \begin{tightitemize}
-  \item Worked on scalability of a large \keyword{Rails} monolith,
-    including splitting components off into separate microservices.
-  \item Used \keyword{event sourcing} and \keyword{two-phase commit}
-    to implement distributed transactions.
+    \item Worked on improving scalability of a key part of our API:
+
+      \begin{itemize}
+      \item Designed a \keyword{table partitioning} strategy to remove expensive queries.
+      \item Worked with product, support, and marketing colleagues to co-ordinate a breaking change to the availability of historic data over the API with users.
+      \item Refactored a large Rails monolith, to split components out into separate microservices.
+      \end{itemize}
+  \item Used \keyword{event sourcing} and \keyword{two-phase commit} to orchestrate distributed systems.
+  \item Assisted with incident triage and response, including contributing to a working group to improve our practices.
   \end{tightitemize}
 \end{cventry}
 
