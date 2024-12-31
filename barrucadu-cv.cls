@@ -138,7 +138,7 @@
         \vspace{\baselineskip}%
         \@addresscity~---~\@addresscountry\\
         \emaillink{\@email} ~\textbullet~ \httplink{\@homepage}\\
-        github:~\httplink[\@github]{https://github.com/\@github} ~\textbullet~ linkedin:~\httplink[\@linkedin]{https://www.linkedin.com/in/\@linkedin} ~\textbullet~ twitter:~\httplink[\@twitter]{https://twitter.com/\@twitter}}}}
+        github:~\httplink[\@github]{https://github.com/\@github} ~\textbullet~ linkedin:~\httplink[\@linkedin]{https://www.linkedin.com/in/\@linkedin}}}}
   \pagestyle{plain}}
 
 \AtBeginDocument{%
@@ -172,7 +172,6 @@
 \newcommand*{\email}[1]{\def\@email{#1}}
 \newcommand*{\homepage}[1]{\def\@homepage{#1}}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
-\newcommand*{\twitter}[1]{\def\@twitter{#1}}
 \newcommand*{\github}[1]{\def\@github{#1}}
 
 % -----------------------------------------------------------------------------
