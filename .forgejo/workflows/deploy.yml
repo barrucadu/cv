@@ -1,0 +1,34 @@
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    # TODO: should probably be 'runs-on: docker' with an appropriate label on
+    # the runner, or even add an ubuntu-texlive label for this image specifically
+    runs-on: nix
+    container:
+      image: mirror.gcr.io/texlive/texlive:latest-full
+    steps:
+      - name: Install tools
+        run: |
+          apt-get update && apt-get install -y nodejs git wget ssh
+      - uses: https://code.forgejo.org/actions/checkout@v4
+      - name: Get fonts
+        run: |
+          wget $FONTS_URL && tar xf fonts.tar
+        env:
+          FONTS_URL: ${{ secrets.FONTS_URL }}
+      - name: Build
+        run: |
+          latexmk -pdf -xelatex cv.tex
+      - name: Deploy carcosa
+        run: bash -e .forgejo/scripts/deploy.sh
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CARCOSA_SSH_PRIVATE_KEY }}
+          TARGET: carcosa.barrucadu.co.uk
+      - name: Deploy yuggoth
+        run: bash -e .forgejo/scripts/deploy.sh
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.YUGGOTH_SSH_PRIVATE_KEY }}
+          TARGET: yuggoth.barrucadu.co.uk

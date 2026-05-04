@@ -1,5 +1,6 @@
 .auctex-auto/
 auto/
+fonts/
 *.aux
 *.bbl
 *.blg

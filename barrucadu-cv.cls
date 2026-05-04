@@ -38,13 +38,13 @@
 \RequirePackage{fontspec}
 
 \newfontfamily\nameFont{Century Supra A Caps}[
-  Path        = ../fonts/mb_type_library/otf/Century Supra A Caps/ ,
+  Path        = ./fonts/Century Supra A Caps/ ,
   Extension   = .otf ,
   UprightFont = Century Supra A Caps Regular,
 ]
 
 \setmainfont{Valkyrie A}[
-  Path           = ../fonts/mb_type_library/otf/Valkyrie A/ ,
+  Path           = ./fonts/Valkyrie A/ ,
   Extension      = .otf ,
   UprightFont    = Valkyrie A Regular ,
   BoldFont       = Valkyrie A Bold ,
@@ -54,26 +54,26 @@
 ]
 
 \newfontfamily\sectionHeadingFont{Heliotrope 8 Caps (Uppercase)}[
-  Path        = ../fonts/mb_type_library/otf/Heliotrope 8/ ,
+  Path        = ./fonts/Heliotrope 8/ ,
   Extension   = .otf ,
   UprightFont = Heliotrope 8 Italic ,
   LetterSpace = 4 ,
 ]
 
 \newfontfamily\subsectionHeadingFont{Heliotrope 8 Caps}[
-  Path        = ../fonts/mb_type_library/otf/Heliotrope 8 Caps/ ,
+  Path        = ./fonts/Heliotrope 8 Caps/ ,
   Extension   = .otf ,
   UprightFont = Heliotrope 8 Caps Regular ,
 ]
 
 \newfontfamily\entryHeadingFont{Heliotrope 6}[
-  Path        = ../fonts/mb_type_library/otf/Heliotrope 6/ ,
+  Path        = ./fonts/Heliotrope 6/ ,
   Extension   = .otf ,
   UprightFont = Heliotrope 6 Regular,
 ]
 
 \newfontfamily\entryDateFont{Valkyrie A}[
-  Path        = ../fonts/mb_type_library/otf/Valkyrie A/ ,
+  Path        = ./fonts/Valkyrie A/ ,
   Extension   = .otf ,
   UprightFont = Valkyrie A Regular ,
   Numbers     = OldStyle ,
